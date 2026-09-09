@@ -32,12 +32,13 @@ Traza cada insight o segmento hasta un requisito funcional o de UX, con su prior
 
 ## 📄 Documentación técnica
 
-| Documento                                                             | Contenido                                                                                                          |
-| --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| [`investigacion_de_usuarios.md`](./docs/investigacion_de_usuarios.md) | Especificación del trabajo — qué campos debe capturar cada interfaz, método por método.                            |
-| [`blueprint.md`](./docs/blueprint.md)                                 | Blueprint técnico — stack, estructura del repositorio, convenciones de código y componentes compartidos.           |
-| [`CONTRIBUTING.md`](./docs/CONTRIBUTING.md)                           | Guía de contribución — Desarrollo local del proyecto y flujos de commits, ramas y pull requests.                   |
-| [`repository-config.md`](./docs/repository-config.md)                 | Plantilla de referencia de ajustes de GitHub — Actions, ruleset de `main` y configuración general del repositorio. |
+| Documento                                                                                                          | Contenido                                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| [`investigacion_de_usuarios.md`](./docs/investigacion_de_usuarios.md)                                              | Especificación del trabajo — qué campos debe capturar cada interfaz, método por método.                            |
+| [`blueprint.md`](./docs/blueprint.md)                                                                              | Blueprint técnico — stack, estructura del repositorio, convenciones de código y componentes compartidos.           |
+| [`CONTRIBUTING.md`](./docs/CONTRIBUTING.md)                                                                        | Guía de contribución — Desarrollo local del proyecto y flujos de commits, ramas y pull requests.                   |
+| [`repository-config.md`](./docs/repository-config.md)                                                              | Plantilla de referencia de ajustes de GitHub — Actions, ruleset de `main` y configuración general del repositorio. |
+| [Figma](<https://www.figma.com/design/htKcqDpxkgfinmSvzsKGB5/Cima-Fix-Research?node-id=15-3&t=7OAWRTTWSIbYcG7N-1>) | Wireframes de las 6 interfaces. Fuente de verdad de los tokens de diseño.                                          |
 
 ---
 

@@ -2,18 +2,19 @@
 
 | Metadato             | Valor                         |
 | -------------------- | ----------------------------- |
-| Versión              | v1.0.0                        |
+| Versión              | v1.1.0                        |
 | Estado               | Activo                        |
-| Última actualización | 2026-09-06                    |
+| Última actualización | 2026-09-08                    |
 | Autor                | Mike Armando Montano Valencia |
 
 ---
 
 ## Historial de cambios
 
-| Versión | Fecha      | Autor                         | Cambios                                 |
-| ------- | ---------- | ----------------------------- | --------------------------------------- |
-| v1.0.0  | 2026-09-06 | Mike Armando Montano Valencia | Versión inicial, lista para desarrollo. |
+| Versión | Fecha      | Autor                         | Cambios                                                                                                                                                                                                                                                           |
+| ------- | ---------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| v1.0.0  | 2026-09-06 | Mike Armando Montano Valencia | Versión inicial, lista para desarrollo.                                                                                                                                                                                                                           |
+| v1.1.0  | 2026-09-08 | Mike Armando Montano Valencia | Sección 7 reescrita: Figma (wireframes) pasa a ser la fuente de verdad de las decisiones de tipografía, color y spacing; el código queda como copia sincronizada, consumida vía components/ui/. Se retiran todas las tablas de valores/nombres de este documento. |
 
 ---
 
@@ -112,7 +113,7 @@ features/<nombre-interfaz>/
 **Límites de propiedad**, para minimizar conflictos de merge trabajando en paralelo:
 
 - Cada quien trabaja **únicamente dentro de su carpeta** en `features/`.
-- `components/ui/`, `lib/`, `router.tsx`, `index.css` y `App.tsx` son compartidos — los entrega el scaffolding inicial. Si alguien necesita un componente nuevo ahí, se coordina adecuadamente en vez de editarlo directamente.
+- `components/ui/`, `lib/`, `router.tsx`, `index.css` y `App.tsx` son compartidos — los entrega el scaffolding inicial. Si alguien necesita un componente nuevo ahí, se coordina adecuadamente en vez de editarlo directamente. Excepción: agregar un token nuevo al bloque `@theme` de `index.css` no requiere coordinar con el líder — basta con haberlo reflejado primero en Figma (ver sección 7).
 
 ## 4.1 Contrato de datos entre interfaces (Empathy Map ↔ Roper Dynagram ↔ Mapeo de Requerimientos)
 
@@ -141,7 +142,7 @@ Para que las 6 interfaces se vean y comporten de forma consistente sin que cada 
 - `Button`, `Input`, `TextArea`, `Select`
 - `FormField` (label + mensaje de error)
 - `Card`
-- `Badge` (variantes success / danger / warning / neutral, construidas solo con los tokens de la sección 7 — `success`/`danger`/`warning` usan las variables CSS semánticas, `neutral` usa los grises fijos de "Superficies neutrales") — usado por clasificaciones de usuario, potencial de innovación, prioridad y estado de validación
+- `Badge` (variantes success / danger / warning / neutral, construidas solo con los tokens de `@theme` — `success`/`danger`/`warning` usan las variables CSS semánticas correspondientes, `neutral` usa la escala de grises definida en `@theme`) — usado por clasificaciones de usuario, potencial de innovación, prioridad y estado de validación
 - `DataList` / `DataTable` (listado con acciones editar/eliminar)
 - `Modal` (confirmación de eliminar, formularios de creación/edición)
 - `ExportButton` (dispara `exportToJSON` / `exportToCSV` de `lib/export.ts`)
@@ -151,52 +152,15 @@ El scaffolding incluye además **la página de entrada (landing page)** de la ap
 
 ## 7. Guía de diseño (Design Tokens)
 
-No hay diseño previo en Figma, así que se define aquí una base mínima para no bloquear a nadie. Es una **propuesta inicial ajustable** — si alguien quiere definir otros valores, se reemplaza aquí antes de empezar a codificar, no después.
+El equipo trabaja wireframes en Figma para las 6 interfaces — sin acabado visual, solo estructura y flujo. Aun así, **Figma es la fuente de verdad para las decisiones de diseño**: tipografía (Text Styles), color y spacing (Figma Variables), se usen o no visualmente dentro de los wireframes. Ningún otro lugar —ni este documento, ni el código— decide o propone un valor nuevo.
 
-**Tipografía** (clases de Tailwind, fuente por defecto de Tailwind — `font-sans`):
+El código no es una segunda fuente de verdad: es una copia sincronizada de lo que Figma ya decidió. Quien implemente un componente consulta el valor vigente directamente en Figma y lo refleja en el código — variables CSS en el `@theme` de `src/index.css` para color y spacing, clases de Tailwind para tipografía — actualizando esa copia cada vez que cambie en Figma, nunca al revés.
 
-| Elemento                  | Clase Tailwind                         | Uso                                    |
-| ------------------------- | -------------------------------------- | -------------------------------------- |
-| H1                        | `text-3xl font-bold text-gray-900`     | Título de cada interfaz                |
-| H2                        | `text-2xl font-semibold text-gray-900` | Secciones dentro de una interfaz       |
-| H3                        | `text-xl font-semibold text-gray-900`  | Subsecciones / nombres de tarjeta      |
-| Cuerpo                    | `text-base text-gray-900`              | Texto normal, contenido de formularios |
-| Texto secundario / labels | `text-sm text-gray-500`                | Etiquetas, ayudas, metadatos           |
+Los valores de `@theme` (color, spacing, tipografía) se pueden usar libremente en cualquier interfaz — directamente como variables CSS o como clases de Tailwind.
 
-**Colores** (declarados como variables CSS en `src/index.css`, vía `@theme` de Tailwind v4 — nadie usa clases directas de color semántico/marca como `bg-blue-600`, solo estos nombres; los neutros van aparte, ver la tabla de abajo):
+**Agregar un valor nuevo.** Si una interfaz necesita un color, spacing u otro token que `@theme` todavía no cubre —por ejemplo, la rueda del Roper Dynagram necesita un color por segmento, y el número de segmentos depende de los datos reales cargados— ese valor se agrega primero a Figma y después a `@theme` en `src/index.css`, igual que cualquier otro token. Ningún lugar del código usa un valor de diseño que no esté declarado en `@theme` — si no está ahí, no se usa, se agrega primero.
 
-| Variable                | Rol semántico                                                                                                                          | Valor     |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `--color-primary`       | Acción primaria (botones, links, navegación activa)                                                                                    | *#002e6b* |
-| `--color-primary-hover` | Estado hover/active de `--color-primary`                                                                                               | *#00449e* |
-| `--color-surface`       | Fondo de `Card` y `Modal` — un tono más oscuro que `--color-background` para que la superficie elevada se distinga del fondo de página | *#F6F6F6* |
-| `--color-success`       | Éxito / validado                                                                                                                       | *#1A7A53* |
-| `--color-danger`        | Error / eliminar                                                                                                                       | *#942525* |
-| `--color-danger-hover`  | Hover para Error / eliminar                                                                                                            | *#7a1e1e* |
-| `--color-warning`       | Advertencia                                                                                                                            | *#d29034* |
-| `--color-warning-text`  | Texto oscuro para usar sobre `--color-warning`                                                                                         | *#3a2405* |
-| `--color-background`    | Fondo de página (todas las interfaces)                                                                                                 | *#FBFBFB* |
-
-**Superficies neutrales** (clases de Tailwind fijas, sin variable — mismo valor en las 6 interfaces):
-
-| Elemento                          | Clase Tailwind    | Uso                                                     |
-| --------------------------------- | ----------------- | ------------------------------------------------------- |
-| Borde de tarjeta / divisores      | `border-gray-200` | Bordes sutiles en `Card`, `Modal`, separadores de lista |
-| Fondo alterno / hover de fila     | `bg-gray-50`      | Hover en filas de `DataList` / `DataTable`              |
-| Texto deshabilitado / placeholder | `text-gray-400`   | Placeholder de inputs, estados disabled                 |
-| Fondo deshabilitado               | `bg-gray-100`     | Inputs y botones en estado disabled                     |
-
-Estos tonos de gris —los de texto (tabla de Tipografía) y los de esta tabla— quedan fijos para toda la suite: ningún responsable de interfaz elige los suyos. No se declaran como variable CSS porque no cumplen un rol semántico ni de marca, solo son grises de UI.
-
-**Colores adicionales específicos de una interfaz.** Los tokens de arriba son la base obligatoria para las 6 interfaces. Si una interfaz necesita un color que estos tokens no cubren —por ejemplo, para distinguir categorías propias, un botón, una tarjeta o cualquier otro elemento que decida agregar— su responsable puede definir colores adicionales. El caso más claro es la rueda del Roper Dynagram, donde el número de segmentos depende de cuántos resulten al cargar los datos reales de la investigación.
-
-Reglas para esta excepción:
-
-- Se declaran en la carpeta de la interfaz (`features/<nombre-interfaz>/`), no en `src/index.css` (compartido; no se toca sin coordinar con el líder).
-- Se usan únicamente dentro de esa interfaz: no reemplazan ni conviven con los tokens base en las otras interfaces.
-- No sustituyen a `--color-success` / `--color-danger` / `--color-warning`, que siguen siendo exclusivos para comunicar estado (éxito, error, advertencia) en cualquier interfaz.
-
-Estas clases se utilizan dentro de cada componente de `components/ui/` (`Button`, `Input`, `Card`, `FormField`, `Badge`, etc.); es responsabilidad de su implementación en el código — no se repite aquí.
+[Figma Link](<https://www.figma.com/design/htKcqDpxkgfinmSvzsKGB5/Cima-Fix-Research?node-id=15-3&t=7OAWRTTWSIbYcG7N-1>)
 
 ## 8. Requisitos técnicos comunes (checklist para las 6 interfaces)
 
@@ -207,7 +171,7 @@ cada interfaz debe:
 
 - Persistencia vía `lib/storage.ts` (no acceso directo a `localStorage`)
 - Exportación a JSON y CSV vía `lib/export.ts` (no librería externa)
-- Uso de los componentes de `components/ui/` (no HTML plano ni estilos sueltos)
+- Uso de los componentes de `components/ui/` para elementos reutilizables (botones, inputs, tarjetas, etc.) — no reimplementar por separado un botón o input propio.
 - Integrada en `router.tsx` y `NavMenu` (coordinar con el líder al agregarla)
 
 ## 9. Datos: prueba vs. reales
