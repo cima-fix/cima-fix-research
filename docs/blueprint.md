@@ -2,9 +2,9 @@
 
 | Metadato             | Valor                         |
 | -------------------- | ----------------------------- |
-| Versión              | v1.1.0                        |
+| Versión              | v1.2.0                        |
 | Estado               | Activo                        |
-| Última actualización | 2026-09-08                    |
+| Última actualización | 2026-09-09                    |
 | Autor                | Mike Armando Montano Valencia |
 
 ---
@@ -15,6 +15,7 @@
 | ------- | ---------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | v1.0.0  | 2026-09-06 | Mike Armando Montano Valencia | Versión inicial, lista para desarrollo.                                                                                                                                                                                                                           |
 | v1.1.0  | 2026-09-08 | Mike Armando Montano Valencia | Sección 7 reescrita: Figma (wireframes) pasa a ser la fuente de verdad de las decisiones de tipografía, color y spacing; el código queda como copia sincronizada, consumida vía components/ui/. Se retiran todas las tablas de valores/nombres de este documento. |
+| v1.2.0  | 2026-09-09 | Mike Armando Montano Valencia | Sección 4: se agrega `lib/list.ts` a la estructura del repositorio. Sección 8: se agrega el uso de `lib/list.ts` como requisito del checklist de las 6 interfaces.                                                                                                |
 
 ---
 
@@ -84,6 +85,7 @@ cima-fix-research/
 │   │   └── requirements-mapping/
 │   ├── lib/
 │   │   ├── storage.ts        # wrapper sobre localStorage (get/set tipado)
+│   │   ├── list.ts           # helpers inmutables de CRUD sobre listas (id, add/update/remove)
 │   │   ├── export.ts         # exportToJSON(), exportToCSV()
 │   │   └── validation.ts     # helpers de validación reutilizables
 │   └── types/
@@ -170,6 +172,7 @@ responsivo — ver "Interfaces a desarrollar" y "Requisitos técnicos"),
 cada interfaz debe:
 
 - Persistencia vía `lib/storage.ts` (no acceso directo a `localStorage`)
+- CRUD sobre listas vía `lib/list.ts` (no reimplementar generación de IDs ni mutación de arrays)
 - Exportación a JSON y CSV vía `lib/export.ts` (no librería externa)
 - Uso de los componentes de `components/ui/` para elementos reutilizables (botones, inputs, tarjetas, etc.) — no reimplementar por separado un botón o input propio.
 - Integrada en `router.tsx` y `NavMenu` (coordinar con el líder al agregarla)
