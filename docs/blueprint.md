@@ -27,6 +27,8 @@ Este documento **no** repite los campos que debe capturar cada interfaz — eso 
 
 Una vez que cada integrante del proyecto identifique su interfaz en la sección 2, puede comenzar a crear su propio **Plan de Fases** — un documento aparte, más detallado, específico de su interfaz.
 
+Estos documentos viven en `docs/project-phases/`, nombrados con el mismo slug de la sección 2 (`docs/project-phases/<slug>.md` — ej. `expert-interviews.md`); el del líder es `scaffolding.md`.
+
 ## 1. Resumen del proyecto
 
 Cima Fix Research es una suite de 6 interfaces web, una por cada método de investigación de usuarios visto. Es un proyecto complementario a la app Cima Fix (el sistema de reportes de mantenimiento del campus), en donde este sirve como un sistema de organización y representación de las investigaciones (entrevistas, encuestas, etc.) realizadas para el desarrollo de Cima Fix. Cima Fix Research es distinto de la app Cima Fix — comparte equipo y parte del stack, pero no código, base de datos ni infraestructura.
