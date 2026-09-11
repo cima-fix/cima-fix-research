@@ -2,9 +2,9 @@
 
 | Metadato             | Valor                         |
 | -------------------- | ----------------------------- |
-| Versión              | v1.2.0                        |
+| Versión              | v1.3.0                        |
 | Estado               | Activo                        |
-| Última actualización | 2026-09-09                    |
+| Última actualización | 2026-09-10                    |
 | Autor                | Mike Armando Montano Valencia |
 
 ---
@@ -16,6 +16,7 @@
 | v1.0.0  | 2026-09-06 | Mike Armando Montano Valencia | Versión inicial, lista para desarrollo.                                                                                                                                                                                                                           |
 | v1.1.0  | 2026-09-08 | Mike Armando Montano Valencia | Sección 7 reescrita: Figma (wireframes) pasa a ser la fuente de verdad de las decisiones de tipografía, color y spacing; el código queda como copia sincronizada, consumida vía components/ui/. Se retiran todas las tablas de valores/nombres de este documento. |
 | v1.2.0  | 2026-09-09 | Mike Armando Montano Valencia | Sección 4: se agrega `lib/list.ts` a la estructura del repositorio. Sección 8: se agrega el uso de `lib/list.ts` como requisito del checklist de las 6 interfaces.                                                                                                |
+| v1.3.0  | 2026-09-10 | Mike Armando Montano Valencia | Sección 7: se agrega regla de nombrado para tokens nuevos de `@theme` (evitar colisión de sufijo con otros `--color-*`, con prefijos de utility, y con `--text-*`).                                                                                               |
 
 ---
 
@@ -163,6 +164,10 @@ El código no es una segunda fuente de verdad: es una copia sincronizada de lo q
 Los valores de `@theme` (color, spacing, tipografía) se pueden usar libremente en cualquier interfaz — directamente como variables CSS o como clases de Tailwind.
 
 **Agregar un valor nuevo.** Si una interfaz necesita un color, spacing u otro token que `@theme` todavía no cubre —por ejemplo, la rueda del Roper Dynagram necesita un color por segmento, y el número de segmentos depende de los datos reales cargados— ese valor se agrega primero a Figma y después a `@theme` en `src/index.css`, igual que cualquier otro token. Ningún lugar del código usa un valor de diseño que no esté declarado en `@theme` — si no está ahí, no se usa, se agrega primero.
+
+**Nombrar el token.** El sufijo no puede repetirse con otra variable de `--color-*`, ni con un sufijo ya usado en `--text-*` (`heading-1`...`body-xs`): ambos namespaces generan el prefijo de clase `text-`, y si el sufijo coincide, Tailwind deja de generar una de las dos utilities en vez de generar ambas — es un bug conocido, sin resolución consistente entre versiones.
+
+Evitar además que el sufijo coincida con un prefijo de utility de Tailwind (`bg`, `ring`, etc.), salvo que sea el nombre semántico exacto de esa utility (`border` para color de borde, `ring` para el anillo de foco) — ahí sí se permite, siguiendo la convención de shadcn/ui (`border-border`, `ring-ring`).
 
 [Figma Link](<https://www.figma.com/design/htKcqDpxkgfinmSvzsKGB5/Cima-Fix-Research?node-id=15-3&t=7OAWRTTWSIbYcG7N-1>)
 
