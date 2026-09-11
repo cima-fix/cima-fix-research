@@ -40,7 +40,7 @@ Coordinación posterior con los 6 responsables sobre archivos compartidos y alta
 - **Rama:** `chore/design-tokens`
 - **Incluye:** bloque `@theme` en `index.css`, sincronizado con Figma (blueprint.md §7).
 - **Depende de:** Fase 0.
-- **Estado:** pendiente.
+- **Estado:** completada.
 
 ## Fase 3 — Kit de UI base
 
