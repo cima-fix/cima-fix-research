@@ -2,9 +2,9 @@
 
 | Metadato             | Valor                         |
 | -------------------- | ----------------------------- |
-| Versión              | v1.3.0                        |
+| Versión              | v1.4.0                        |
 | Estado               | Activo                        |
-| Última actualización | 2026-09-10                    |
+| Última actualización | 2026-09-12                    |
 | Autor                | Mike Armando Montano Valencia |
 
 ---
@@ -17,6 +17,7 @@
 | v1.1.0  | 2026-09-08 | Mike Armando Montano Valencia | Sección 7 reescrita: Figma (wireframes) pasa a ser la fuente de verdad de las decisiones de tipografía, color y spacing; el código queda como copia sincronizada, consumida vía components/ui/. Se retiran todas las tablas de valores/nombres de este documento. |
 | v1.2.0  | 2026-09-09 | Mike Armando Montano Valencia | Sección 4: se agrega `lib/list.ts` a la estructura del repositorio. Sección 8: se agrega el uso de `lib/list.ts` como requisito del checklist de las 6 interfaces.                                                                                                |
 | v1.3.0  | 2026-09-10 | Mike Armando Montano Valencia | Sección 7: se agrega regla de nombrado para tokens nuevos de `@theme` (evitar colisión de sufijo con otros `--color-*`, con prefijos de utility, y con `--text-*`).                                                                                               |
+| v1.4.0  | 2026-09-12 | Mike Armando Montano Valencia | Sección 3: se agrega `clsx` + `tailwind-merge` como utilidades de UI. Sección 4: se agrega `lib/cn.ts` a la estructura del repositorio. Sección 6: se agrega la convención de `className`/`cn()` para los componentes base compartidos.                           |
 
 ---
 
@@ -59,6 +60,7 @@ División de trabajo:
 | Capa                                  | Tecnología                                                                                                                                          | Justificación                                                                                                                                                                                                                                                                                                                                            |
 | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Frontend                              | React ≥19.2.5 + Vite ≥7 (Vite 8 vigente) + TypeScript + Tailwind v4 (`@tailwindcss/vite`)                                                           | Mismo stack de frontend que Cima Fix — el equipo ya lo conoce, cero curva de aprendizaje nueva, y cumple el requisito de "framework consistente en toda la suite".                                                                                                                                                                                       |
+| Utilidades de UI                      | `clsx` + `tailwind-merge` (vía `lib/cn.ts`)                                                                                                         | Los componentes de `components/ui/` exponen `className` para que cada interfaz ajuste su layout; sin una utilidad de merge, un override de clases de Tailwind no es determinista.                                                                                                                                                                        |
 | Ruteo                                 | React Router                                                                                                                                        | Estándar de facto para ruteo de cliente en React. Instalar la major vigente (v8 al momento de escribir este documento) — v6 está en End of Life. El paquete es react-router (no react-router-dom).                                                                                                                                                       |
 | Persistencia                          | `localStorage` (default), con `idb-keyval` como respaldo si alguna interfaz necesita guardar más datos de los que `localStorage` maneja cómodamente | Cada interfaz es una herramienta de un solo usuario, sin datos compartidos entre personas — no hay justificación para un backend. `localStorage` es síncrono y trivial de usar (`JSON.stringify`/`parse`); se cambia a IndexedDB solo si una interfaz específica lo necesita, no por defecto.                                                            |
 | Exportación JSON/CSV                  | Utilidades propias en `lib/export.ts` (sin librería)                                                                                                | El volumen de datos es pequeño (mínimo 4 usuarios reales); no se justifica una dependencia externa para esto.                                                                                                                                                                                                                                            |
@@ -90,7 +92,8 @@ cima-fix-research/
 │   │   ├── storage.ts        # wrapper sobre localStorage (get/set tipado)
 │   │   ├── list.ts           # helpers inmutables de CRUD sobre listas (id, add/update/remove)
 │   │   ├── export.ts         # exportToJSON(), exportToCSV()
-│   │   └── validation.ts     # helpers de validación reutilizables
+│   │   ├── validation.ts     # helpers de validación reutilizables
+│   │   └── cn.ts             # merge seguro de clases Tailwind (clsx + tailwind-merge)
 │   └── types/
 │       └── common.ts         # tipos compartidos entre interfaces (mínimos)
 ├── docs/                  # documentación del proyecto
@@ -145,13 +148,15 @@ El resto del contrato — campos exactos, claves de `localStorage`, cuándo se r
 Para que las 6 interfaces se vean y comporten de forma consistente sin que cada quien reinvente lo mismo:
 
 - `Button`, `Input`, `TextArea`, `Select`
-- `FormField` (label + mensaje de error)
+- `FormField` (label + mensaje de error; recibe un único campo — Input/TextArea/Select — como `children`, y le inyecta `id`/`required`/`aria-required`/`aria-invalid`/`aria-describedby` automáticamente)
 - `Card`
 - `Badge` (variantes success / danger / warning / neutral, construidas solo con los tokens de `@theme` — `success`/`danger`/`warning` usan las variables CSS semánticas correspondientes, `neutral` usa la escala de grises definida en `@theme`) — usado por clasificaciones de usuario, potencial de innovación, prioridad y estado de validación
 - `DataList` / `DataTable` (listado con acciones editar/eliminar)
 - `Modal` (confirmación de eliminar, formularios de creación/edición)
 - `ExportButton` (dispara `exportToJSON` / `exportToCSV` de `lib/export.ts`)
 - `AppShell` + `NavMenu` (layout y navegación entre las 6 interfaces)
+
+Todos los componentes de esta lista exponen `className` para que cada interfaz ajuste su layout (por default ocupan el ancho disponible, excepto `Badge` — es una etiqueta inline, no un bloque de layout); el merge con las clases propias del componente siempre se hace con `cn()` (`lib/cn.ts`), nunca concatenando strings directamente.
 
 El scaffolding incluye además **la página de entrada (landing page)** de la aplicación, ya implementada con estos componentes, como ejemplo de uso a seguir — no hace falta describir el patrón en texto aquí, se lee directamente del código.
 
