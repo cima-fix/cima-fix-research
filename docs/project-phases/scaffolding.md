@@ -49,7 +49,7 @@ Coordinación posterior con los 6 responsables sobre archivos compartidos y alta
 - **Incluye:** `Button`, `Input`, `TextArea`, `Select`, `FormField`, `Card`, `Badge` (blueprint.md §6).
 - **Nota:** blueprint.md v1.4.0 agregó `lib/cn.ts` (clsx + tailwind-merge) como utilidad requerida — se entrega en esta fase, no en la fase 1 (ya completada), ya que el blueprint la definió después.
 - **Depende de:** Fase 2.
-- **Estado:** pendiente.
+- **Estado:** completada.
 
 ## Fase 4 — Kit de UI avanzado
 
