@@ -24,6 +24,7 @@ export function Button({
   return (
     <button
       ref={ref}
+      type={type}
       className={cn(
         "w-full inline-flex items-center justify-center gap-2 rounded-md h-10 px-4",
         "text-paragraph font-medium transition-colors",
