@@ -40,7 +40,7 @@ export function exportToJSON<T>(data: T, filename: string): void {
   downloadBlob(blob, `${filename}.json`);
 }
 
-export function exportToCSV<T extends Record<string, unknown>>(
+export function exportToCSV<T extends object>(
   data: T[],
   filename: string,
 ): void {
@@ -51,9 +51,10 @@ export function exportToCSV<T extends Record<string, unknown>>(
   const headers = Array.from(new Set(data.flatMap((row) => Object.keys(row))));
   const headerRow = headers.map(escapeCSVField).join(",");
 
-  const rows = data.map((row) =>
-    headers.map((key) => formatCSVValue(row[key])).join(","),
-  );
+  const rows = data.map((row) => {
+    const record = row as Record<string, unknown>;
+    return headers.map((key) => formatCSVValue(record[key])).join(",");
+  });
 
   const csv = [headerRow, ...rows].join("\n");
 
