@@ -59,7 +59,7 @@ Coordinación posterior con los 6 responsables sobre archivos compartidos y alta
   - `feat(ui): add export button component` → `feature/ui-export-button`
 - **Incluye:** `DataList`/`DataTable`, `Modal`, `ExportButton` (blueprint.md §6).
 - **Depende de:** Fase 1 (ExportButton) y Fase 3.
-- **Estado:** pendiente.
+- **Estado:** completada.
 
 ## Fase 5 — Layout y navegación
 
