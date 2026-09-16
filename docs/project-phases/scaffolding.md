@@ -63,17 +63,20 @@ Coordinación posterior con los 6 responsables sobre archivos compartidos y alta
 
 ## Fase 5 — Layout y navegación
 
-- **Issue:** `feat(layout): add navigable app shell`
-- **Rama:** `feature/app-shell`
-- **Incluye:** `AppShell`, `NavMenu`, `router.tsx`, `App.tsx` (blueprint.md §4, §6).
-- **Depende de:** Fase 2.
+- **Sub-issues**:
+  - `feat(layout): add navigable app shell` → `feature/app-shell`
+  - `feat(lib): add dataset import utility` → `feature/dataset-import`
+- **Incluye:** `AppShell`, `NavMenu`, `router.tsx`, `App.tsx` (blueprint.md §4, §6); utilitario `lib/import.ts` y la carga automática del dataset real al iniciar la aplicación, invocada desde `App.tsx` (blueprint.md §4.2).
+- **Depende de:** Fase 1 y 2. `feature/dataset-import` depende además de que `feature/app-shell` esté en `main` — necesita invocar la carga desde `App.tsx`.
+- **Nota:** blueprint.md v1.5.0 agregó `lib/import.ts` — se entrega en esta fase, no en la Fase 1 (ya completada), ya que el blueprint definió esta utilidad después, y su primer punto de invocación es `App.tsx` de esta misma fase (la Fase 6 añade una segunda invocación, manual, reutilizando la misma función de escritura).
 - **Estado:** pendiente.
 
 ## Fase 6 — Página de entrada
 
-- **Issue:** `feat(landing): add landing page`
-- **Rama:** `feature/landing-page`
-- **Incluye:** landing page con los componentes de las Fases 3–5, como ruta índice en `router.tsx` (blueprint.md §6).
-- **Depende de:** Fase 3, 4 y 5.
-- **Nota:** blueprint.md no define dónde vive el archivo de esta página (sí lo hace para las 6 interfaces, §4) — decisión de implementación de esta fase.
+- **Sub-issues**:
+  - `feat(landing): add landing page` → `feature/landing-page`
+  - `feat(ui): add import button component` → `feature/ui-import-button`
+- **Incluye:** landing page con los componentes de las Fases 3–5, como ruta índice en `router.tsx` (blueprint.md §6); componente `ImportButton` y la importación manual del dataset (blueprint.md §4.2, §6).
+- **Depende de:** Fase 3, 4 y 5. `feature/ui-import-button` depende además de que `feature/landing-page` esté en `main`, y de `feature/dataset-import` (Fase 5) por la función de escritura que reutiliza.
+- **Nota:** blueprint.md no define dónde vive el archivo de esta página (sí lo hace para las 6 interfaces, §4) — decisión de implementación de esta fase. blueprint.md agregó `ImportButton` después de la Fase 4 — se entrega aquí.
 - **Estado:** pendiente. Cierra la responsabilidad de scaffolding del líder (blueprint.md §1).
