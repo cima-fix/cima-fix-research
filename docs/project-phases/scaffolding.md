@@ -69,7 +69,7 @@ Coordinación posterior con los 6 responsables sobre archivos compartidos y alta
 - **Incluye:** `AppShell`, `NavMenu`, `router.tsx`, `App.tsx` (blueprint.md §4, §6); utilitario `lib/import.ts` y la carga automática del dataset real al iniciar la aplicación, invocada desde `App.tsx` (blueprint.md §4.2).
 - **Depende de:** Fase 1 y 2. `feature/dataset-import` depende además de que `feature/app-shell` esté en `main` — necesita invocar la carga desde `App.tsx`.
 - **Nota:** blueprint.md v1.5.0 agregó `lib/import.ts` — se entrega en esta fase, no en la Fase 1 (ya completada), ya que el blueprint definió esta utilidad después, y su primer punto de invocación es `App.tsx` de esta misma fase (la Fase 6 añade una segunda invocación, manual, reutilizando la misma función de escritura).
-- **Estado:** pendiente.
+- **Estado:** completada.
 
 ## Fase 6 — Página de entrada
 
