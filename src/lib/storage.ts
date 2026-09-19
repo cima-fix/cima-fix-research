@@ -12,6 +12,10 @@ export function getItem<T>(key: string, fallback: T): T {
   }
 }
 
+export function hasItem(key: string): boolean {
+  return localStorage.getItem(key) !== null;
+}
+
 export function setItem<T>(key: string, value: T): void {
   try {
     localStorage.setItem(key, JSON.stringify(value));
