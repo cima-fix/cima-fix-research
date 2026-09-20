@@ -1,3 +1,9 @@
+// features/expert-interviews/ExpertInterviewDetailPage.tsx
+// Vista de detalle de una entrevista, de solo lectura.
+// Layout base según wireframe de Figma: Perfil + Referencias en la columna
+// izquierda; Guion dinámico / Restricciones y riesgos / Mapa de complejidad
+// técnica / Notas y siguientes pasos en cuadrícula 2x2 a la derecha.
+
 import { Link, useParams } from "react-router";
 import { Badge } from "../../components/ui/Badge.tsx";
 import { Card } from "../../components/ui/Card.tsx";
@@ -24,8 +30,15 @@ export function ExpertInterviewDetailPage() {
     );
   }
 
-  const { perfil, guion, complejidadTecnica, restriccionesYRiesgos, notas, siguientesPasos } =
-    interview;
+  const {
+    perfil,
+    guion,
+    complejidadTecnica,
+    restriccionesYRiesgos,
+    referencias,
+    notas,
+    siguientesPasos,
+  } = interview;
 
   return (
     <div className="w-full flex flex-col gap-4">
@@ -34,37 +47,67 @@ export function ExpertInterviewDetailPage() {
       </Link>
 
       <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-4 items-start">
-        {/* Perfil del experto */}
-        <Card className="flex flex-col gap-2">
-          <h1 className="text-heading-5 font-medium text-ink-primary">{perfil.alias}</h1>
-          <Badge variant={perfil.medio === "presencial" ? "success" : "neutral"}>
-            {perfil.medio}
-          </Badge>
-          <dl className="flex flex-col gap-2 mt-2">
-            <div>
-              <dt className="text-body-xs text-ink-secondary">Rol</dt>
-              <dd className="text-body-sm text-ink-primary">{perfil.rol}</dd>
-            </div>
-            <div>
-              <dt className="text-body-xs text-ink-secondary">Dominio</dt>
-              <dd className="text-body-sm text-ink-primary">{perfil.dominio}</dd>
-            </div>
-            <div>
-              <dt className="text-body-xs text-ink-secondary">Organización</dt>
-              <dd className="text-body-sm text-ink-primary">{perfil.organizacion}</dd>
-            </div>
-            <div>
-              <dt className="text-body-xs text-ink-secondary">Años de experiencia</dt>
-              <dd className="text-body-sm text-ink-primary">{perfil.aniosExperiencia}</dd>
-            </div>
-            <div>
-              <dt className="text-body-xs text-ink-secondary">Fecha</dt>
-              <dd className="text-body-sm text-ink-primary">{perfil.fecha || "—"}</dd>
-            </div>
-          </dl>
-        </Card>
+        {/* Columna izquierda: Perfil + Referencias */}
+        <div className="flex flex-col gap-4">
+          <Card className="flex flex-col gap-2">
+            <h1 className="text-heading-5 font-medium text-ink-primary">{perfil.alias}</h1>
+            <Badge variant={perfil.medio === "presencial" ? "success" : "neutral"}>
+              {perfil.medio}
+            </Badge>
+            <dl className="flex flex-col gap-2 mt-2">
+              <div>
+                <dt className="text-body-xs text-ink-secondary">Rol</dt>
+                <dd className="text-body-sm text-ink-primary">{perfil.rol}</dd>
+              </div>
+              <div>
+                <dt className="text-body-xs text-ink-secondary">Dominio</dt>
+                <dd className="text-body-sm text-ink-primary">{perfil.dominio}</dd>
+              </div>
+              <div>
+                <dt className="text-body-xs text-ink-secondary">Organización</dt>
+                <dd className="text-body-sm text-ink-primary">{perfil.organizacion}</dd>
+              </div>
+              <div>
+                <dt className="text-body-xs text-ink-secondary">Años de experiencia</dt>
+                <dd className="text-body-sm text-ink-primary">{perfil.aniosExperiencia}</dd>
+              </div>
+              <div>
+                <dt className="text-body-xs text-ink-secondary">Fecha</dt>
+                <dd className="text-body-sm text-ink-primary">{perfil.fecha || "—"}</dd>
+              </div>
+            </dl>
+          </Card>
 
-        {/* Cuadrícula 2x2 */}
+          {/* Referencias / fuentes recomendadas */}
+          <Card className="flex flex-col gap-3">
+            <h2 className="text-body-sm font-medium text-ink-primary">
+              Referencias / fuentes recomendadas
+            </h2>
+            {referencias.length === 0 ? (
+              <p className="text-body-xs text-ink-secondary">Ninguna registrada.</p>
+            ) : (
+              <ul className="flex flex-col gap-2">
+                {referencias.map((ref) => (
+                  <li key={ref.id} className="flex flex-col">
+                    <span className="text-body-sm text-ink-primary">{ref.descripcion}</span>
+                    {ref.url && (
+                      <a
+                        href={ref.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-body-xs text-primary underline w-fit"
+                      >
+                        {ref.url}
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </Card>
+        </div>
+
+        {/* Cuadrícula de secciones */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* Guion dinámico */}
           <Card className="flex flex-col gap-3">
