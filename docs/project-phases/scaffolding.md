@@ -79,4 +79,4 @@ Coordinación posterior con los 6 responsables sobre archivos compartidos y alta
 - **Incluye:** landing page con los componentes de las Fases 3–5, como ruta índice en `router.tsx` (blueprint.md §6); componente `ImportButton` y la importación manual del dataset (blueprint.md §4.2, §6).
 - **Depende de:** Fase 3, 4 y 5. `feature/ui-import-button` depende además de que `feature/landing-page` esté en `main`, y de `feature/dataset-import` (Fase 5) por la función de escritura que reutiliza.
 - **Nota:** blueprint.md no define dónde vive el archivo de esta página (sí lo hace para las 6 interfaces, §4) — decisión de implementación de esta fase. blueprint.md agregó `ImportButton` después de la Fase 4 — se entrega aquí.
-- **Estado:** pendiente. Cierra la responsabilidad de scaffolding del líder (blueprint.md §1).
+- **Estado:** completada. Cierra la responsabilidad de scaffolding del líder (blueprint.md §1).
