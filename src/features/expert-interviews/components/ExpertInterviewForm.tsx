@@ -3,20 +3,20 @@
 // Cubre los seis grupos de campos de investigacion_de_usuarios.md §1.
 
 import { useState } from "react";
-import { Button } from "../../../components/ui/Button.tsx";
-import { Card } from "../../../components/ui/Card.tsx";
-import { FormField } from "../../../components/ui/FormField.tsx";
-import { Input } from "../../../components/ui/Input.tsx";
-import { Select } from "../../../components/ui/Select.tsx";
-import { TextArea } from "../../../components/ui/TextArea.tsx";
-import { addToList, removeFromList, updateInList } from "../../../lib/list.ts";
-import { TagListEditor } from "./TagListEditor.tsx";
+import { Button } from "../../../components/ui/Button";
+import { Card } from "../../../components/ui/Card";
+import { FormField } from "../../../components/ui/FormField";
+import { Input } from "../../../components/ui/Input";
+import { Select } from "../../../components/ui/Select";
+import { TextArea } from "../../../components/ui/TextArea";
+import { addToList, removeFromList, updateInList } from "../../../lib/list";
+import { TagListEditor } from "./TagListEditor";
 import type {
   ExpertInterview,
   MedioEntrevista,
   PreguntaRespuesta,
   Referencia,
-} from "../types.ts";
+} from "../types";
 
 const EMPTY_FORM: Omit<ExpertInterview, "id"> = {
   perfil: {
@@ -47,6 +47,67 @@ export interface ExpertInterviewFormProps {
   onCancel: () => void;
 }
 
+// --- Validación ---
+// NOTA: asume que FormField acepta `error?: string` (blueprint.md §6: "label +
+// mensaje de error"). Ajustar el nombre de la prop si el componente real usa
+// otro distinto.
+
+interface PerfilErrors {
+  alias?: string;
+  rol?: string;
+  dominio?: string;
+  aniosExperiencia?: string;
+  organizacion?: string;
+  fecha?: string;
+}
+
+interface FormErrors {
+  perfil: PerfilErrors;
+  guion: Record<string, { pregunta?: string; respuesta?: string }>;
+  referencias: Record<string, { descripcion?: string }>;
+}
+
+const NO_ERRORS: FormErrors = { perfil: {}, guion: {}, referencias: {} };
+
+function validate(data: Omit<ExpertInterview, "id">): FormErrors {
+  const perfil: PerfilErrors = {};
+  if (!data.perfil.alias.trim()) perfil.alias = "El alias es obligatorio.";
+  if (!data.perfil.rol.trim()) perfil.rol = "El rol es obligatorio.";
+  if (!data.perfil.dominio.trim()) perfil.dominio = "El dominio es obligatorio.";
+  if (!Number.isFinite(data.perfil.aniosExperiencia) || data.perfil.aniosExperiencia < 0) {
+    perfil.aniosExperiencia = "Debe ser un número mayor o igual a 0.";
+  }
+  if (!data.perfil.organizacion.trim()) {
+    perfil.organizacion = "La organización es obligatoria.";
+  }
+  if (!data.perfil.fecha) perfil.fecha = "La fecha es obligatoria.";
+
+  const guion: FormErrors["guion"] = {};
+  for (const qa of data.guion) {
+    const entry: { pregunta?: string; respuesta?: string } = {};
+    if (!qa.pregunta.trim()) entry.pregunta = "La pregunta es obligatoria.";
+    if (!qa.respuesta.trim()) entry.respuesta = "La respuesta es obligatoria.";
+    if (entry.pregunta || entry.respuesta) guion[qa.id] = entry;
+  }
+
+  const referencias: FormErrors["referencias"] = {};
+  for (const ref of data.referencias) {
+    if (!ref.descripcion.trim()) {
+      referencias[ref.id] = { descripcion: "La descripción es obligatoria." };
+    }
+  }
+
+  return { perfil, guion, referencias };
+}
+
+function hasErrors(errors: FormErrors): boolean {
+  return (
+    Object.keys(errors.perfil).length > 0 ||
+    Object.keys(errors.guion).length > 0 ||
+    Object.keys(errors.referencias).length > 0
+  );
+}
+
 export function ExpertInterviewForm({
   initialValue,
   onSubmit,
@@ -65,9 +126,13 @@ export function ExpertInterviewForm({
         }
       : EMPTY_FORM,
   );
+  const [errors, setErrors] = useState<FormErrors>(NO_ERRORS);
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
+    const nextErrors = validate(form);
+    setErrors(nextErrors);
+    if (hasErrors(nextErrors)) return;
     onSubmit(form);
   }
 
@@ -129,7 +194,7 @@ export function ExpertInterviewForm({
           Perfil del experto
         </legend>
 
-        <FormField id="alias" label="Alias" required>
+        <FormField id="alias" label="Alias" required error={errors.perfil.alias}>
           <Input
             value={form.perfil.alias}
             onChange={(e) =>
@@ -138,7 +203,7 @@ export function ExpertInterviewForm({
           />
         </FormField>
 
-        <FormField id="rol" label="Rol" required>
+        <FormField id="rol" label="Rol" required error={errors.perfil.rol}>
           <Input
             value={form.perfil.rol}
             onChange={(e) =>
@@ -147,7 +212,7 @@ export function ExpertInterviewForm({
           />
         </FormField>
 
-        <FormField id="dominio" label="Dominio" required>
+        <FormField id="dominio" label="Dominio" required error={errors.perfil.dominio}>
           <Input
             value={form.perfil.dominio}
             onChange={(e) =>
@@ -156,7 +221,12 @@ export function ExpertInterviewForm({
           />
         </FormField>
 
-        <FormField id="anios-experiencia" label="Años de experiencia" required>
+        <FormField
+          id="anios-experiencia"
+          label="Años de experiencia"
+          required
+          error={errors.perfil.aniosExperiencia}
+        >
           <Input
             type="number"
             min={0}
@@ -170,7 +240,12 @@ export function ExpertInterviewForm({
           />
         </FormField>
 
-        <FormField id="organizacion" label="Organización" required>
+        <FormField
+          id="organizacion"
+          label="Organización"
+          required
+          error={errors.perfil.organizacion}
+        >
           <Input
             value={form.perfil.organizacion}
             onChange={(e) =>
@@ -182,7 +257,7 @@ export function ExpertInterviewForm({
           />
         </FormField>
 
-        <FormField id="fecha" label="Fecha" required>
+        <FormField id="fecha" label="Fecha" required error={errors.perfil.fecha}>
           <Input
             type="date"
             value={form.perfil.fecha}
