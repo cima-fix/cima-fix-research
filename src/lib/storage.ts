@@ -42,6 +42,17 @@ export type FeatureSlug =
   | "roper-dynagram"
   | "requirements-mapping";
 
+export const STORAGE_KEY_PREFIX = "cima-fix-research";
+
 export function createStorageKey(feature: FeatureSlug, entity: string): string {
-  return `cima-fix-research:${feature}:${entity}`;
+  return `${STORAGE_KEY_PREFIX}:${feature}:${entity}`;
 }
+
+export const FEATURE_LABELS: Record<FeatureSlug, string> = {
+  "expert-interviews": "Entrevista a Expertos",
+  "extreme-users": "Usuarios Extremos",
+  "needfinding": "Needfinding (El Iceberg)",
+  "empathy-map": "Empathy Map (The Parser)",
+  "roper-dynagram": "Roper Dynagram",
+  "requirements-mapping": "Mapeo de Requerimientos",
+};
