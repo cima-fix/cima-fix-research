@@ -2,6 +2,7 @@ import type { ComponentType, SVGProps } from "react";
 import { useNavigate } from "react-router";
 import { Button } from "../components/ui/Button.tsx";
 import { Card } from "../components/ui/Card.tsx";
+import { ImportButton } from "../components/ui/ImportButton.tsx";
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 
@@ -172,18 +173,40 @@ export function LandingPage() {
 
   return (
     <div className="flex flex-col gap-8">
-      <header className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+      <header className="flex flex-col gap-2">
+        <h1 className="text-heading-2 font-semibold text-ink-primary">
+          Cima Fix Research
+        </h1>
+        <p className="max-w-2xl text-body-sm text-ink-secondary">
+          Suite de 6 interfaces para convertir el ruido cualitativo de
+          entrevistas y observaciones en datos estructurados, capturados,
+          persistidos y exportables.
+        </p>
+      </header>
+
+      <section
+        aria-labelledby="import-dataset-heading"
+        className="flex flex-col gap-4 py-2 sm:flex-row sm:items-center sm:justify-between sm:gap-10 sm:py-4"
+      >
         <div className="flex flex-col gap-2">
-          <h1 className="text-heading-2 font-semibold text-ink-primary">
-            Cima Fix Research
-          </h1>
+          <h2
+            id="import-dataset-heading"
+            className="text-heading-6 font-semibold text-ink-primary"
+          >
+            Importar dataset real
+          </h2>
           <p className="max-w-2xl text-body-sm text-ink-secondary">
-            Suite de 6 interfaces para convertir el ruido cualitativo de
-            entrevistas y observaciones en datos estructurados, capturados,
-            persistidos y exportables.
+            Sube aquí el archivo JSON con la misma forma que el dataset
+            consolidado para poblar las 6 interfaces sin recargar registro
+            por registro.
+          </p>
+          <p className="max-w-2xl text-body-sm text-danger">
+            Sobrescribe los datos ya guardados de las interfaces incluidas
+            en el archivo — no se puede deshacer.
           </p>
         </div>
-      </header>
+        <ImportButton className="sm:w-auto sm:flex-shrink-0" />
+      </section>
 
       <section
         aria-label="Métodos de investigación"

@@ -2,6 +2,10 @@ import { hasItem, setItem } from "./storage.ts";
 
 export type Dataset = Record<string, unknown>;
 
+export function isDataset(value: unknown): value is Dataset {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
 async function fetchDataset(url: string): Promise<Dataset | null> {
   let response: Response;
 
@@ -23,16 +27,12 @@ async function fetchDataset(url: string): Promise<Dataset | null> {
 
   try {
     const parsed: unknown = await response.json();
-    if (
-      typeof parsed !== "object" ||
-      parsed === null ||
-      Array.isArray(parsed)
-    ) {
+    if (!isDataset(parsed)) {
       console.warn(`Dataset at "${url}" is not a JSON object, ignoring it.`);
       return null;
     }
 
-    return parsed as Dataset;
+    return parsed;
   } catch (error) {
     console.warn(`Failed to parse dataset from "${url}" as JSON:`, error);
     return null;
