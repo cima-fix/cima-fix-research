@@ -1,6 +1,6 @@
 // features/expert-interviews/ExpertInterviewsPage.tsx
-// Punto de entrada de la interfaz "Entrevista a Expertos".
-// Lista las entrevistas registradas, permite crear/editar/eliminar y exportar.
+// "Expert Interview" interface entry point.
+// Lists recorded interviews; allows for creating, editing, deleting, and exporting.
 
 import { useState } from "react";
 import { Link } from "react-router";

@@ -1,8 +1,8 @@
 // features/expert-interviews/ExpertInterviewDetailPage.tsx
-// Vista de detalle de una entrevista, de solo lectura.
-// Layout base según wireframe de Figma: Perfil + Referencias en la columna
-// izquierda; Guion dinámico / Restricciones y riesgos / Mapa de complejidad
-// técnica / Notas y siguientes pasos en cuadrícula 2x2 a la derecha.
+// Read-only detail view of an interview.
+// Base layout based on the Figma wireframe: Profile + References in the left
+// column; Dynamic script (Question + Answer) / Restrictions and risks / Technical complexity map
+// Notes and next steps in a 2x2 grid on the right.
 
 import { Link, useParams } from "react-router";
 import { Badge } from "../../components/ui/Badge.tsx";
@@ -47,7 +47,7 @@ export function ExpertInterviewDetailPage() {
       </Link>
 
       <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-4 items-start">
-        {/* Columna izquierda: Perfil + Referencias */}
+        {/* Left column: Profile + References */}
         <div className="flex flex-col gap-4">
           <Card className="flex flex-col gap-2">
             <h1 className="text-heading-5 font-medium text-ink-primary">{perfil.alias}</h1>
@@ -78,7 +78,7 @@ export function ExpertInterviewDetailPage() {
             </dl>
           </Card>
 
-          {/* Referencias / fuentes recomendadas */}
+          {/* Recommended references/sources */}
           <Card className="flex flex-col gap-3">
             <h2 className="text-body-sm font-medium text-ink-primary">
               Referencias / fuentes recomendadas
@@ -107,9 +107,9 @@ export function ExpertInterviewDetailPage() {
           </Card>
         </div>
 
-        {/* Cuadrícula de secciones */}
+        {/* Section grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {/* Guion dinámico */}
+          {/* Dynamic script */}
           <Card className="flex flex-col gap-3">
             <h2 className="text-body-sm font-medium text-ink-primary">Guion dinámico</h2>
             {guion.length === 0 && (
@@ -124,7 +124,7 @@ export function ExpertInterviewDetailPage() {
             ))}
           </Card>
 
-          {/* Restricciones y riesgos */}
+          {/* Restrictions and risks */}
           <Card className="flex flex-col gap-3">
             <h2 className="text-body-sm font-medium text-ink-primary">
               Restricciones y riesgos
@@ -142,7 +142,7 @@ export function ExpertInterviewDetailPage() {
             )}
           </Card>
 
-          {/* Mapa de complejidad técnica */}
+          {/* Technical complexity map */}
           <Card className="flex flex-col gap-3">
             <h2 className="text-body-sm font-medium text-ink-primary">
               Mapa de complejidad técnica
@@ -159,7 +159,7 @@ export function ExpertInterviewDetailPage() {
             />
           </Card>
 
-          {/* Notas y siguientes pasos */}
+          {/*Notes and next steps */}
           <Card className="flex flex-col gap-3">
             <h2 className="text-body-sm font-medium text-ink-primary">
               Notas y siguientes pasos

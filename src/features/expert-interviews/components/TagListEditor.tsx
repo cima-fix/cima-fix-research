@@ -1,8 +1,5 @@
 // features/expert-interviews/components/TagListEditor.tsx
-// Editor de listas de strings simples (ej. "conceptos clave", "restricciones").
-// No hay un componente de UI compartido para esto en components/ui/, así que
-// esta es una decisión de implementación local a esta interfaz, no algo
-// definido por blueprint.md.
+// Simple string list editor (e.g., "key concepts", "constraints").
 
 import { useId, useState } from "react";
 import { Badge } from "../../../components/ui/Badge.tsx";

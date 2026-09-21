@@ -1,7 +1,6 @@
 // features/expert-interviews/types.ts
 // Modelo de datos de la interfaz "Entrevista a Expertos".
-// Campos según investigacion_de_usuarios.md §1 — no agregar campos que ese
-// documento no pida.
+// Fields based on `investigacion_de_usuarios.md` §1 — do not add fields not requested in that document.
 
 import type { Identifiable } from "../../lib/list";
 

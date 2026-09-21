@@ -1,6 +1,6 @@
 // features/expert-interviews/components/ExpertInterviewForm.tsx
-// Formulario de creación/edición de una entrevista a experto.
-// Cubre los seis grupos de campos de investigacion_de_usuarios.md §1.
+// Form for creating/editing an expert interview.
+// It covers the six groups of investigacion_de_usuarios.md §1.
 
 import { useState } from "react";
 import { Button } from "../../../components/ui/Button";
@@ -46,11 +46,6 @@ export interface ExpertInterviewFormProps {
   onSubmit: (data: Omit<ExpertInterview, "id">) => void;
   onCancel: () => void;
 }
-
-// --- Validación ---
-// NOTA: asume que FormField acepta `error?: string` (blueprint.md §6: "label +
-// mensaje de error"). Ajustar el nombre de la prop si el componente real usa
-// otro distinto.
 
 interface PerfilErrors {
   alias?: string;
@@ -136,7 +131,7 @@ export function ExpertInterviewForm({
     onSubmit(form);
   }
 
-  // --- Guion dinámico (pregunta → respuesta) ---
+  // --- Dynamic script (question -> answer) ---
 
   function addQuestion() {
     setForm((prev) => ({
@@ -160,7 +155,7 @@ export function ExpertInterviewForm({
     setForm((prev) => ({ ...prev, guion: removeFromList(prev.guion, id) }));
   }
 
-  // --- Referencias ---
+  // --- References ---
 
   function addReferencia() {
     setForm((prev) => ({
@@ -188,7 +183,7 @@ export function ExpertInterviewForm({
 
   return (
     <form onSubmit={handleSubmit} className="w-full flex flex-col gap-6">
-      {/* Perfil del experto */}
+      {/* Expert Profile */}
       <fieldset className="flex flex-col gap-3">
         <legend className="text-body-sm font-medium text-ink-primary mb-1">
           Perfil del experto
@@ -283,7 +278,7 @@ export function ExpertInterviewForm({
         </FormField>
       </fieldset>
 
-      {/* Guion dinámico */}
+      {/* Dynamic script */}
       <fieldset className="flex flex-col gap-3">
         <legend className="text-body-sm font-medium text-ink-primary mb-1">
           Guion (pregunta → respuesta)
@@ -329,7 +324,7 @@ export function ExpertInterviewForm({
         </Button>
       </fieldset>
 
-      {/* Mapa de complejidad técnica */}
+      {/* Technical complexity map */}
       <fieldset className="flex flex-col gap-3">
         <legend className="text-body-sm font-medium text-ink-primary mb-1">
           Mapa de complejidad técnica
@@ -380,7 +375,7 @@ export function ExpertInterviewForm({
         />
       </fieldset>
 
-      {/* Restricciones y riesgos */}
+      {/* Restrictions and risks */}
       <fieldset>
         <legend className="text-body-sm font-medium text-ink-primary mb-1">
           Restricciones y riesgos
@@ -392,7 +387,7 @@ export function ExpertInterviewForm({
         />
       </fieldset>
 
-      {/* Referencias */}
+      {/* References */}
       <fieldset className="flex flex-col gap-3">
         <legend className="text-body-sm font-medium text-ink-primary mb-1">
           Referencias / fuentes recomendadas
@@ -431,7 +426,7 @@ export function ExpertInterviewForm({
         </Button>
       </fieldset>
 
-      {/* Notas y siguientes pasos */}
+      {/* Notes and next steps */}
       <fieldset className="flex flex-col gap-3">
         <legend className="text-body-sm font-medium text-ink-primary mb-1">
           Notas y siguientes pasos
