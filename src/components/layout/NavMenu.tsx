@@ -7,7 +7,9 @@ interface NavItem {
   path: string;
 }
 
-const NAV_ITEMS: NavItem[] = [];
+const NAV_ITEMS: NavItem[] = [
+  { label: "Entrevista a Expertos", path: "/expert-interviews" },
+];
 
 export type NavMenuProps = HTMLAttributes<HTMLElement>;
 
