@@ -9,7 +9,7 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [];
 
-export const PAGE_GUTTER_X = "px-4 sm:px-6 lg:px-8";
+export const PAGE_GUTTER_X = "px-6 sm:px-10 lg:px-16 xl:px-24 2xl:px-36";
 
 export type NavMenuProps = HTMLAttributes<HTMLElement>;
 
