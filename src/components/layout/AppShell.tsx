@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from "react";
 import { Outlet } from "react-router";
 import { cn } from "../../lib/cn.ts";
-import { NavMenu } from "./NavMenu.tsx";
+import { NavMenu, PAGE_GUTTER_X } from "./NavMenu.tsx";
 
 export type AppShellProps = HTMLAttributes<HTMLDivElement>;
 
@@ -12,7 +12,7 @@ export function AppShell({ className, ...props }: AppShellProps) {
       {...props}
     >
       <NavMenu />
-      <main className="mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
+      <main className={cn("w-full py-8", PAGE_GUTTER_X)}>
         <Outlet />
       </main>
     </div>

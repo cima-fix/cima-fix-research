@@ -9,13 +9,16 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [];
 
+export const PAGE_GUTTER_X = "px-4 sm:px-6 lg:px-8";
+
 export type NavMenuProps = HTMLAttributes<HTMLElement>;
 
 export function NavMenu({ className, ...props }: NavMenuProps) {
   return (
     <nav
       className={cn(
-        "flex w-full items-center justify-between gap-4 border-b border-border bg-surface px-4 py-3",
+        "flex w-full items-center justify-between gap-4 border-b border-border bg-surface py-3",
+        PAGE_GUTTER_X,
         className,
       )}
       {...props}
