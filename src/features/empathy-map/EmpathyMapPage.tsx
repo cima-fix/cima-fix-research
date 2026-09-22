@@ -6,6 +6,7 @@ import { Button } from "../../components/ui/Button.tsx";
 import { addToList, removeFromList, updateInList } from "../../lib/list.ts";
 import { Card } from "../../components/ui/Card.tsx";
 import { Badge } from "../../components/ui/Badge.tsx";
+import { ExportButton } from "../../components/ui/ExportButton.tsx";
 import type { Fragment, Quadrant, Subject } from "./types.ts";
 import type { Insight } from "../../types/common.ts";
 
@@ -133,6 +134,10 @@ export function EmpathyMapPage() {
     const inboxFragments = fragments.filter(
         (f) => f.sujetoId === activeSubjectId && f.estado === "sin-clasificar",
     );
+    const classifiedFragments = fragments.filter(
+        (f) => f.sujetoId === activeSubjectId && f.estado === "clasificado",
+    );
+    const subjectInsights = insights.filter((i) => i.sujetoId === activeSubjectId);
 
     return (
         <div className="p-6">
@@ -206,7 +211,14 @@ export function EmpathyMapPage() {
             </section>
 
             <section aria-labelledby="grid-heading" className="mb-6">
-                <h2 id="grid-heading" className="sr-only">Cuadrantes</h2>
+                <div className="flex items-center justify-between mb-2">
+                    <h2 id="grid-heading" className="sr-only">Cuadrantes</h2>
+                    <ExportButton
+                        data={classifiedFragments}
+                        filename="empathy-map-fragments"
+                        className="w-auto"
+                    />
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {QUADRANTS.map((q) => {
                         const notes = fragments.filter(
@@ -242,9 +254,16 @@ export function EmpathyMapPage() {
             </section>
 
             <section aria-labelledby="insights-heading" className="mb-6">
-                <h2 id="insights-heading" className="text-heading-3 font-semibold mb-2">
-                    Generador de insights
-                </h2>
+                <div className="flex items-center justify-between mb-2">
+                    <h2 id="insights-heading" className="text-heading-3 font-semibold">
+                        Generador de insights
+                    </h2>
+                    <ExportButton
+                        data={subjectInsights}
+                        filename="empathy-map-insights"
+                        className="w-auto"
+                    />
+                </div>
                 <div className="flex gap-2 mb-3">
                     <Input
                         value={newInsightDescripcion}
