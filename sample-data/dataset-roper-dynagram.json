@@ -1,0 +1,78 @@
+{
+  "cima-fix-research:roper-dynagram:sujetos": [
+    {
+      "id": "349db877-9f1a-585b-bfa2-4fd57ebecda7",
+      "nombre": "Alfonso (Administrador)"
+    },
+    {
+      "id": "ce709a1a-ddf1-5698-b6c9-33a214ea619f",
+      "nombre": "Odín (Técnico)"
+    },
+    {
+      "id": "5d3ec689-cfc0-58fb-8a39-1437ff124a11",
+      "nombre": "Lupita (Estudiante)"
+    },
+    {
+      "id": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "nombre": "Jonatan (Docente)"
+    }
+  ],
+  "cima-fix-research:roper-dynagram:segmentos": [
+    {
+      "id": "c597c52d-e004-54b0-8f09-40f89e85cbaf",
+      "nombre": "Buscadores de confirmación",
+      "criterio": "Seguridad, necesidad de retroalimentación",
+      "requisitoUX": "Acuse de recibo inmediato y estado visible del reporte",
+      "funcionalidadClave": "Notificaciones de cambio de estado por correo",
+      "tonoSistema": "Cercano y tranquilizador"
+    },
+    {
+      "id": "8e59b5d5-8ccd-5462-9f31-51ba6aeba63f",
+      "nombre": "Pragmáticos autosuficientes",
+      "criterio": "Pragmatismo, resolver rápido por su cuenta",
+      "requisitoUX": "Reportar en menos de un minuto desde el aula",
+      "funcionalidadClave": "QR con salón precargado",
+      "tonoSistema": "Directo y breve"
+    },
+    {
+      "id": "40b2d356-4448-54c7-bde9-0f319337501a",
+      "nombre": "Controladores del proceso",
+      "criterio": "Orden, registro formal, control",
+      "requisitoUX": "Vista visual y centralizada de todos los reportes",
+      "funcionalidadClave": "Detección de duplicados y tablero de estados",
+      "tonoSistema": "Formal e institucional"
+    }
+  ],
+  "cima-fix-research:roper-dynagram:asignaciones": [
+    {
+      "id": "94b2e171-f4ce-5e41-932d-2b207469af74",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "segmentoId": "c597c52d-e004-54b0-8f09-40f89e85cbaf",
+      "evidencia": "\"Que tuviera alguna especie de feedback de que alguien lo recibió o lo leyó.\""
+    },
+    {
+      "id": "2af0d4dd-8aae-52a3-94c3-ba564ff4faf9",
+      "sujetoId": "5d3ec689-cfc0-58fb-8a39-1437ff124a11",
+      "segmentoId": "c597c52d-e004-54b0-8f09-40f89e85cbaf",
+      "evidencia": "\"Que al solucionar algún reporte, manden un correo electrónico o una notificación.\""
+    },
+    {
+      "id": "0a92160a-b0b1-54f6-96b6-0ff9d81396b8",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "segmentoId": "8e59b5d5-8ccd-5462-9f31-51ba6aeba63f",
+      "evidencia": "Compró el cable por su cuenta en lugar de reportarlo."
+    },
+    {
+      "id": "9febc103-b65a-5878-9103-d458b941d5a7",
+      "sujetoId": "ce709a1a-ddf1-5698-b6c9-33a214ea619f",
+      "segmentoId": "40b2d356-4448-54c7-bde9-0f319337501a",
+      "evidencia": "Exige reportes por el canal formal y hace respaldos por semestre."
+    },
+    {
+      "id": "0a752911-a30b-5cb5-b4c0-519080a8a6a3",
+      "sujetoId": "349db877-9f1a-585b-bfa2-4fd57ebecda7",
+      "segmentoId": "40b2d356-4448-54c7-bde9-0f319337501a",
+      "evidencia": "\"Que sea lo más visual posible.\" Pide registro por escrito de cada reporte."
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "cima-fix-research:expert-interviews:interviews": [
+    {
+      "id": "0ce47570-43ab-58f8-9d0a-67d25cd2eaef",
+      "perfil": {
+        "alias": "Alfonso Elias Ibarra Collins",
+        "rol": "Administrador de la facultad",
+        "dominio": "Contable financiero y presupuesto",
+        "aniosExperiencia": 2,
+        "organizacion": "Facultad de Ingeniería, UABC Campus Sauzal",
+        "fecha": "2026-09-04",
+        "medio": "presencial"
+      },
+      "guion": [
+        {
+          "id": "2d9a0d21-5add-5956-9517-7faa556e55ad",
+          "pregunta": "¿Cómo se entera usted de que existe una incidencia?",
+          "respuesta": "Todas las formas, QR, WhatsApp, personalmente, correos electrónicos.",
+          "esCitaTextualClave": false
+        },
+        {
+          "id": "64e702e2-842c-59c7-b021-76556ef5cf65",
+          "pregunta": "Una vez recibido un reporte, ¿queda registrado en algún lado?",
+          "respuesta": "Generalmente les pido que lo hagan a través del correo electrónico o QR, para que haya un registro por escrito. Lo revisa el técnico del área de cómputo.",
+          "esCitaTextualClave": false
+        },
+        {
+          "id": "52290960-16a2-5a89-a2fe-e07ff5854542",
+          "pregunta": "¿Cómo se da cuenta hoy si dos personas reportaron el mismo problema?",
+          "respuesta": "Si hay duplicidad en reportes, incluso en las 4 vías que mencioné, lo tiene que revisar manualmente el técnico.",
+          "esCitaTextualClave": true
+        },
+        {
+          "id": "bea7906b-4b26-5d03-ba4a-67dfcdeeed90",
+          "pregunta": "Cuando un problema se resuelve, ¿alguien le avisa a quien lo reportó?",
+          "respuesta": "Hay un problema con la vía de comunicación, normalmente no se entera. Si son estudiantes no se enteran.",
+          "esCitaTextualClave": true
+        },
+        {
+          "id": "cb26ffb4-35ff-5fb1-abc8-47fddc69c9b6",
+          "pregunta": "¿Por qué cree que el código QR actual no se conoce ni se usa?",
+          "respuesta": "Falta mayor difusión. Pegamos el QR en las aulas y pedí una infografía para proyectar en las pantallas; hace falta imprimirlas.",
+          "esCitaTextualClave": false
+        },
+        {
+          "id": "9de4b2f4-4e2e-5d04-807b-f9af98ea7f66",
+          "pregunta": "¿Con qué frecuencia realista revisaría el sistema?",
+          "respuesta": "Varias veces a la semana, a través del técnico, que está en el E34.",
+          "esCitaTextualClave": false
+        },
+        {
+          "id": "addd607b-8d5e-5ca1-aedd-00ec9c19b4b5",
+          "pregunta": "¿Qué le facilitaría revisar el sistema con regularidad?",
+          "respuesta": "Que sea lo más visual posible.",
+          "esCitaTextualClave": true
+        },
+        {
+          "id": "be89ee38-d813-52a1-89c8-e8f4b3735766",
+          "pregunta": "¿Cómo reaccionarían los reportantes al ver su correo visible?",
+          "respuesta": "El mecanismo actual lo cerramos a los docentes, que son los principales usuarios, para que no haya reportes innecesarios. Debería mantenerse principalmente para docentes.",
+          "esCitaTextualClave": false
+        },
+        {
+          "id": "ee45ce5b-f8d7-59f4-a649-5e5f81b41dcf",
+          "pregunta": "¿El correo es un canal confiable para notificar una asignación?",
+          "respuesta": "Deberíamos acotarlo al correo, porque es el institucional y tiene una comunicación más oficial.",
+          "esCitaTextualClave": false
+        },
+        {
+          "id": "d99f4171-8d45-5935-bdc4-e0da1d513539",
+          "pregunta": "¿Qué categoría es más urgente?",
+          "respuesta": "No es lo mismo que te digan \"cambia ese foco\" a \"se tapó el baño y se está desbordando\". Los proyectores se arreglan internamente; el mantenimiento general es otra área.",
+          "esCitaTextualClave": true
+        },
+        {
+          "id": "ee3e9940-9faf-5f2c-8280-893c58dfe34c",
+          "pregunta": "¿Ha pasado que un reporte quede sin que nadie sepa si sigue pendiente?",
+          "respuesta": "Sí.",
+          "esCitaTextualClave": false
+        },
+        {
+          "id": "c7cabd66-9cbe-51a9-8564-c94f8984353d",
+          "pregunta": "¿Qué tomaría en cuenta antes de adoptar un sistema nuevo?",
+          "respuesta": "Que sea muy fácil, visual. Debe de ser intuitivo.",
+          "esCitaTextualClave": true
+        }
+      ],
+      "complejidadTecnica": {
+        "conceptosClave": [
+          "Reporte por código QR",
+          "Duplicidad de reportes",
+          "Seguimiento del estado",
+          "Notificación al reportante"
+        ],
+        "jergaDelDominio": [
+          "SUEP (Sistema Universitario Electrónico de Pagos)",
+          "B = baño",
+          "F = fuga",
+          "E34 (edificio del técnico)"
+        ],
+        "dependenciasEntreComponentes": [
+          "Proyectores y equipo audiovisual: se atienden internamente por el técnico de cómputo",
+          "Mantenimiento general: requiere solicitud vía SUEP a otra área fuera de la facultad"
+        ],
+        "actoresDelEcosistema": [
+          "Administrador de la facultad",
+          "Técnico de cómputo",
+          "Área de mantenimiento",
+          "Docentes",
+          "Estudiantes",
+          "Prestadores de servicio social"
+        ]
+      },
+      "restriccionesYRiesgos": [
+        "Reportes restringidos a docentes con correo institucional",
+        "A lo mucho dos encargados; a veces el técnico tiene servicio social",
+        "La categoría de mantenimiento es muy amplia: faltan categorías en la plantilla inicial",
+        "Reemplazar equipo (ej. un cañón quemado) es un proceso larguísimo",
+        "Los estudiantes no se enteran cuando se resuelve su reporte"
+      ],
+      "referencias": [
+        {
+          "id": "29daeed9-2f3e-5896-9c16-334d16b14956",
+          "descripcion": "Sistema eObras (referencia sugerida por el entrevistado)"
+        },
+        {
+          "id": "64938343-f0d2-59e6-a674-9fb00fdffe4a",
+          "descripcion": "SUEP — Sistema Universitario Electrónico de Pagos, usado para solicitar mantenimiento"
+        }
+      ],
+      "notas": "Entrevista grabada con consentimiento. El entrevistado mostró un ejemplo de interfaz visual (min 14:50). Algunas preguntas (11, 18) le parecieron ambiguas.",
+      "siguientesPasos": "Ampliar la plantilla de categorías, validar el flujo de notificación por correo institucional y revisar eObras como referencia."
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "cima-fix-research:empathy-map:subjects": [
+    {
+      "id": "349db877-9f1a-585b-bfa2-4fd57ebecda7",
+      "nombre": "Alfonso (Administrador)"
+    },
+    {
+      "id": "ce709a1a-ddf1-5698-b6c9-33a214ea619f",
+      "nombre": "Odín (Técnico)"
+    },
+    {
+      "id": "5d3ec689-cfc0-58fb-8a39-1437ff124a11",
+      "nombre": "Lupita (Estudiante)"
+    },
+    {
+      "id": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "nombre": "Jonatan (Docente)"
+    }
+  ],
+  "cima-fix-research:empathy-map:fragments": [
+    {
+      "id": "b3ab3c1b-d906-55f7-9723-e20791473c4f",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "texto": "Yo creo que no es de fácil acceso, fácil conocimiento.",
+      "estado": "clasificado",
+      "cuadrante": "dice"
+    },
+    {
+      "id": "cdc5b22e-f78d-5d60-b263-ae4861f56b06",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "texto": "Compró él mismo un cable que no funcionaba en lugar de reportarlo.",
+      "estado": "clasificado",
+      "cuadrante": "hace"
+    },
+    {
+      "id": "674cd22c-9119-52f6-aaf2-4226de5658be",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "texto": "Cualquiera puede poner su QR, quién sabe si sean reales.",
+      "estado": "clasificado",
+      "cuadrante": "piensa"
+    },
+    {
+      "id": "a8e2cb7b-d778-521d-b99e-989e357ce458",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "texto": "Frustrado cuando reporta algo y nunca sabe qué pasó.",
+      "estado": "clasificado",
+      "cuadrante": "siente"
+    },
+    {
+      "id": "ba86b56b-5adb-5605-84a6-93d247cc4e76",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "texto": "Indiferencia al escanear un QR.",
+      "estado": "clasificado",
+      "cuadrante": "siente"
+    },
+    {
+      "id": "a4a15279-2d6a-5eab-869e-6df3ff1f3189",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "texto": "Cree que otros docentes reportan más que él.",
+      "estado": "sin-clasificar"
+    },
+    {
+      "id": "1e39f126-85ab-5c92-bfea-2b89c45a558e",
+      "sujetoId": "5d3ec689-cfc0-58fb-8a39-1437ff124a11",
+      "texto": "Tener que escribir el número de salón, muchas veces no sabía cuál era.",
+      "estado": "clasificado",
+      "cuadrante": "dice"
+    },
+    {
+      "id": "6df48328-4836-5f04-bf81-f6195e342584",
+      "sujetoId": "5d3ec689-cfc0-58fb-8a39-1437ff124a11",
+      "texto": "Levantaba más reportes para meter presión.",
+      "estado": "clasificado",
+      "cuadrante": "hace"
+    },
+    {
+      "id": "8f5d64c3-5ec7-5e61-9926-0210e699a693",
+      "sujetoId": "5d3ec689-cfc0-58fb-8a39-1437ff124a11",
+      "texto": "Es algo fastidioso el proceso de levantar un reporte y darle seguimiento.",
+      "estado": "clasificado",
+      "cuadrante": "piensa"
+    },
+    {
+      "id": "2b1ce61f-cd97-56f3-b7e0-c82e17242ebc",
+      "sujetoId": "5d3ec689-cfc0-58fb-8a39-1437ff124a11",
+      "texto": "Le parecía muy enredoso revisar el estatus y dejó de hacerlo.",
+      "estado": "clasificado",
+      "cuadrante": "siente"
+    },
+    {
+      "id": "43ab01d5-c37d-5d39-bb0d-7df8245f39ac",
+      "sujetoId": "ce709a1a-ddf1-5698-b6c9-33a214ea619f",
+      "texto": "No atiendan reportes informales de pasillo o por WhatsApp.",
+      "estado": "clasificado",
+      "cuadrante": "dice"
+    },
+    {
+      "id": "54a39a2c-5d42-5270-9c38-459b87eb6d80",
+      "sujetoId": "ce709a1a-ddf1-5698-b6c9-33a214ea619f",
+      "texto": "Hace respaldos manuales del formulario por cada semestre.",
+      "estado": "clasificado",
+      "cuadrante": "hace"
+    },
+    {
+      "id": "8ff76635-0ca7-5e81-b73f-9ce05801238e",
+      "sujetoId": "ce709a1a-ddf1-5698-b6c9-33a214ea619f",
+      "texto": "Una app no puede sustituir el diagnóstico presencial.",
+      "estado": "clasificado",
+      "cuadrante": "piensa"
+    },
+    {
+      "id": "35ec1478-bf92-58bf-90f6-bbf90b832707",
+      "sujetoId": "ce709a1a-ddf1-5698-b6c9-33a214ea619f",
+      "texto": "Revisa manualmente el horario del salón antes de ir.",
+      "estado": "sin-clasificar"
+    },
+    {
+      "id": "f60d1f77-7c8e-5a9a-820c-587f9cf3f188",
+      "sujetoId": "349db877-9f1a-585b-bfa2-4fd57ebecda7",
+      "texto": "Que sea lo más visual posible.",
+      "estado": "clasificado",
+      "cuadrante": "dice"
+    },
+    {
+      "id": "141cc73b-294b-5274-8416-17a96d47ea29",
+      "sujetoId": "349db877-9f1a-585b-bfa2-4fd57ebecda7",
+      "texto": "Pide que los reportes se hagan por correo o QR para que haya registro.",
+      "estado": "clasificado",
+      "cuadrante": "hace"
+    },
+    {
+      "id": "77956e3a-3cec-5b95-a573-22775c538e72",
+      "sujetoId": "349db877-9f1a-585b-bfa2-4fd57ebecda7",
+      "texto": "Falta difusión del QR.",
+      "estado": "clasificado",
+      "cuadrante": "piensa"
+    },
+    {
+      "id": "14e0a025-ae6a-59e7-8578-2614b7f2727e",
+      "sujetoId": "349db877-9f1a-585b-bfa2-4fd57ebecda7",
+      "texto": "Los estudiantes no se enteran cuando se resuelve un reporte.",
+      "estado": "sin-clasificar"
+    }
+  ],
+  "cima-fix-research:empathy-map:insights": [
+    {
+      "id": "2a9efe2a-292c-5940-adf9-369cc8001370",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "descripcion": "Sin acuse de recibo, el docente no confía en el sistema y resuelve por su cuenta.",
+      "tipo": "necesidad-oculta",
+      "prioridad": "alta"
+    },
+    {
+      "id": "97a0b433-7202-5e2e-9532-84f0228c7ed1",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "descripcion": "Los QR sin identidad institucional generan desconfianza.",
+      "tipo": "usabilidad",
+      "prioridad": "media"
+    },
+    {
+      "id": "cbfb3f16-bb93-5da4-bd62-b0bbd8a412a8",
+      "sujetoId": "5d3ec689-cfc0-58fb-8a39-1437ff124a11",
+      "descripcion": "Pedir el número de salón obliga a salir del aula: debería venir precargado en el QR.",
+      "tipo": "carga-cognitiva",
+      "prioridad": "alta"
+    },
+    {
+      "id": "6811bbab-efb5-55a1-9e9c-0f5d271ad5a3",
+      "sujetoId": "5d3ec689-cfc0-58fb-8a39-1437ff124a11",
+      "descripcion": "Los reportes duplicados son una forma de presionar por falta de retroalimentación.",
+      "tipo": "adaptacion-manual",
+      "prioridad": "media"
+    },
+    {
+      "id": "bcfefddb-8866-5e9a-ac7b-4b7752f8864b",
+      "sujetoId": "ce709a1a-ddf1-5698-b6c9-33a214ea619f",
+      "descripcion": "Cruzar el reporte con el horario del salón podría automatizarse.",
+      "tipo": "innovacion-potencial",
+      "prioridad": "alta"
+    },
+    {
+      "id": "13dd8d3f-32e6-5d0f-af6c-7d2f91494c67",
+      "sujetoId": "ce709a1a-ddf1-5698-b6c9-33a214ea619f",
+      "descripcion": "Los respaldos manuales por semestre muestran desconfianza en la persistencia de los datos.",
+      "tipo": "adaptacion-manual",
+      "prioridad": "baja"
+    },
+    {
+      "id": "099dfc01-de37-5e01-b6af-ea5675c2afc1",
+      "sujetoId": "349db877-9f1a-585b-bfa2-4fd57ebecda7",
+      "descripcion": "La administración necesita una vista visual del estado de todos los reportes.",
+      "tipo": "usabilidad",
+      "prioridad": "media"
+    }
+  ]
+}
