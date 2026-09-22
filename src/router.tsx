@@ -5,6 +5,8 @@ import { LandingPage } from "./pages/LandingPage.tsx";
 import { ExpertInterviewsPage } from "./features/expert-interviews/ExpertInterviewsPage.tsx";
 import { ExpertInterviewDetailPage } from "./features/expert-interviews/ExpertInterviewDetailPage.tsx";
 import { NeedfindingPage } from "./features/needfinding/NeedfindingPage.tsx";
+import { ExtremeUsersPage } from "./features/extreme-users/ExtremeUserPage.tsx";
+import { ExtremeUserDetailPage } from "./features/extreme-users/ExtremeUserDetailPage.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +18,8 @@ export const router = createBrowserRouter([
       { path: "expert-interviews", element: <ExpertInterviewsPage /> },
       { path: "expert-interviews/:id", element: <ExpertInterviewDetailPage /> },
       { path: "needfinding", element: <NeedfindingPage /> },
+      { path: "extreme-users", element: <ExtremeUsersPage /> },
+      { path: "extreme-users/:id", element: <ExtremeUserDetailPage /> },
       { path: "*", element: <NotFound /> },
     ],
   },

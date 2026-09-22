@@ -172,68 +172,82 @@ export function LandingPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col gap-8">
-      <header className="flex flex-col gap-2">
-        <h1 className="text-heading-2 font-semibold text-ink-primary">
+    <div className="flex flex-col gap-12 lg:gap-16">
+      <header className="flex flex-col gap-3">
+        <h1 className="text-heading-1 font-semibold text-ink-primary">
           Cima Fix Research
         </h1>
-        <p className="max-w-2xl text-body-sm text-ink-secondary">
+        <p className="max-w-2xl text-paragraph text-ink-secondary">
           Suite de 6 interfaces para convertir el ruido cualitativo de
           entrevistas y observaciones en datos estructurados, capturados,
           persistidos y exportables.
         </p>
       </header>
 
-      <section
-        aria-labelledby="import-dataset-heading"
-        className="flex flex-col gap-4 py-2 sm:flex-row sm:items-center sm:justify-between sm:gap-10 sm:py-4"
-      >
-        <div className="flex flex-col gap-2">
-          <h2
-            id="import-dataset-heading"
-            className="text-heading-6 font-semibold text-ink-primary"
-          >
-            Importar dataset real
-          </h2>
-          <p className="max-w-2xl text-body-sm text-ink-secondary">
-            Sube aquí el archivo JSON con la misma forma que el dataset
-            consolidado para poblar las 6 interfaces sin recargar registro
-            por registro.
-          </p>
-          <p className="max-w-2xl text-body-sm text-danger">
-            Sobrescribe los datos ya guardados de las interfaces incluidas
-            en el archivo — no se puede deshacer.
-          </p>
-        </div>
-        <ImportButton className="sm:w-auto sm:flex-shrink-0" />
+      <section aria-labelledby="import-dataset-heading">
+        <Card className="flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:justify-between sm:gap-10 sm:p-8">
+          <div className="flex flex-col gap-3">
+            <h2
+              id="import-dataset-heading"
+              className="text-heading-3 font-semibold text-ink-primary"
+            >
+              Importar dataset real
+            </h2>
+            <p className="max-w-2xl text-paragraph text-ink-secondary">
+              Sube aquí el archivo JSON con la misma forma que el dataset
+              consolidado para poblar las 6 interfaces sin recargar registro por
+              registro.
+            </p>
+            <p className="max-w-2xl text-paragraph text-danger">
+              Sobrescribe los datos ya guardados de las interfaces incluidas en
+              el archivo — no se puede deshacer.
+            </p>
+          </div>
+          <ImportButton className="sm:w-auto sm:flex-shrink-0" />
+        </Card>
       </section>
 
       <section
-        aria-label="Métodos de investigación"
-        className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        aria-labelledby="research-methods-heading"
+        className="flex flex-col gap-6"
       >
-        {RESEARCH_METHODS.map((method) => (
-          <Card key={method.path} className="flex flex-col gap-4">
-            <div className="flex h-24 items-center justify-center rounded-md bg-secondary">
-              <method.icon className="h-10 w-10 text-primary" />
-            </div>
-            <div className="flex flex-col gap-1">
-              <h2 className="text-heading-6 font-semibold text-ink-primary">
-                {method.name}
-              </h2>
-              <p className="text-body-sm text-ink-secondary">
-                {method.description}
-              </p>
-            </div>
-            <Button
-              variant="secondary"
-              className="mt-auto"
-              onClick={() => navigate(method.path)}
-            >
-              Abrir interfaz
-            </Button>
-          </Card>
-        ))}
+        <div className="flex flex-col gap-3">
+          <h2
+            id="research-methods-heading"
+            className="text-heading-3 font-semibold text-ink-primary"
+          >
+            Métodos de investigación
+          </h2>
+          <p className="max-w-2xl text-paragraph text-ink-secondary">
+            Elige una interfaz para empezar a registrar los datos de tus
+            entrevistas y observaciones.
+          </p>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {RESEARCH_METHODS.map((method) => (
+            <Card key={method.path} className="flex flex-col gap-4 p-6">
+              <div className="flex h-32 items-center justify-center rounded-md bg-secondary">
+                <method.icon className="h-16 w-16 text-primary" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <h3 className="text-heading-5 font-semibold text-ink-primary">
+                  {method.name}
+                </h3>
+                <p className="text-paragraph text-ink-secondary">
+                  {method.description}
+                </p>
+              </div>
+              <Button
+                variant="secondary"
+                className="mt-auto"
+                onClick={() => navigate(method.path)}
+              >
+                Abrir interfaz
+              </Button>
+            </Card>
+          ))}
+        </div>
       </section>
     </div>
   );
