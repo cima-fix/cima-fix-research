@@ -5,7 +5,9 @@ import { Input } from "../../components/ui/Input.tsx";
 import { Button } from "../../components/ui/Button.tsx";
 import { addToList, removeFromList, updateInList } from "../../lib/list.ts";
 import { Card } from "../../components/ui/Card.tsx";
+import { Badge } from "../../components/ui/Badge.tsx";
 import type { Fragment, Quadrant, Subject } from "./types.ts";
+import type { Insight } from "../../types/common.ts";
 
 const SUBJECTS_KEY = createStorageKey("empathy-map", "subjects");
 const FRAGMENTS_KEY = createStorageKey("empathy-map", "fragments");
@@ -16,6 +18,36 @@ const QUADRANT_LABELS: Record<Quadrant, string> = {
     piensa: "Piensa",
     siente: "Siente",
 };
+
+const INSIGHTS_KEY = createStorageKey("empathy-map", "insights");
+
+const TIPOS: Insight["tipo"][] = [
+    "usabilidad",
+    "necesidad-oculta",
+    "carga-cognitiva",
+    "adaptacion-manual",
+    "innovacion-potencial",
+];
+const TIPO_LABELS: Record<Insight["tipo"], string> = {
+    usabilidad: "Usabilidad",
+    "necesidad-oculta": "Necesidad oculta",
+    "carga-cognitiva": "Carga cognitiva",
+    "adaptacion-manual": "Adaptación manual",
+    "innovacion-potencial": "Innovación potencial",
+};
+
+const PRIORIDADES: Insight["prioridad"][] = ["alta", "media", "baja"];
+const PRIORIDAD_LABELS: Record<Insight["prioridad"], string> = {
+    alta: "Alta",
+    media: "Media",
+    baja: "Baja",
+};
+const PRIORIDAD_BADGE_VARIANT: Record<Insight["prioridad"], "danger" | "warning" | "success"> = {
+    alta: "danger",
+    media: "warning",
+    baja: "success",
+};
+
 export function EmpathyMapPage() {
     const [subjects, setSubjects] = useState<Subject[]>(() =>
         getItem<Subject[]>(SUBJECTS_KEY, []),
@@ -29,6 +61,12 @@ export function EmpathyMapPage() {
     });
     const [newSubjectName, setNewSubjectName] = useState("");
     const [newFragmentText, setNewFragmentText] = useState("");
+    const [insights, setInsights] = useState<Insight[]>(() =>
+        getItem<Insight[]>(INSIGHTS_KEY, []),
+    );
+    const [newInsightDescripcion, setNewInsightDescripcion] = useState("");
+    const [newInsightTipo, setNewInsightTipo] = useState<Insight["tipo"]>("usabilidad");
+    const [newInsightPrioridad, setNewInsightPrioridad] = useState<Insight["prioridad"]>("media");
 
     function persistSubjects(next: Subject[]) {
         setSubjects(next);
@@ -70,6 +108,26 @@ export function EmpathyMapPage() {
         persistFragments(
             updateInList(fragments, id, { estado: "sin-clasificar", cuadrante: undefined }),
         );
+    }
+    function persistInsights(next: Insight[]) {
+        setInsights(next);
+        setItem(INSIGHTS_KEY, next);
+    }
+
+    function handleAddInsight() {
+        if (!newInsightDescripcion.trim()) return;
+        const next = addToList(insights, {
+            sujetoId: activeSubjectId ?? undefined,
+            descripcion: newInsightDescripcion.trim(),
+            tipo: newInsightTipo,
+            prioridad: newInsightPrioridad,
+        });
+        persistInsights(next);
+        setNewInsightDescripcion("");
+    }
+
+    function handleRemoveInsight(id: string) {
+        persistInsights(removeFromList(insights, id));
     }
 
     const inboxFragments = fragments.filter(
@@ -183,7 +241,81 @@ export function EmpathyMapPage() {
                 </div>
             </section>
 
-            {/* Generador de insights: Fase 3 */}
+            <section aria-labelledby="insights-heading" className="mb-6">
+                <h2 id="insights-heading" className="text-heading-3 font-semibold mb-2">
+                    Generador de insights
+                </h2>
+                <div className="flex gap-2 mb-3">
+                    <Input
+                        value={newInsightDescripcion}
+                        onChange={(e) => setNewInsightDescripcion(e.target.value)}
+                        placeholder="Descripción del insight..."
+                        aria-label="Descripción del nuevo insight"
+                    />
+                    <Select
+                        value={newInsightTipo}
+                        onChange={(e) => setNewInsightTipo(e.target.value as Insight["tipo"])}
+                        aria-label="Tipo de insight"
+                        className="w-auto"
+                    >
+                        {TIPOS.map((t) => (
+                            <option key={t} value={t}>{TIPO_LABELS[t]}</option>
+                        ))}
+                    </Select>
+                    <Select
+                        value={newInsightPrioridad}
+                        onChange={(e) => setNewInsightPrioridad(e.target.value as Insight["prioridad"])}
+                        aria-label="Prioridad de insight"
+                        className="w-auto"
+                    >
+                        {PRIORIDADES.map((p) => (
+                            <option key={p} value={p}>{PRIORIDAD_LABELS[p]}</option>
+                        ))}
+                    </Select>
+                    <Button onClick={handleAddInsight}>+ Agregar insight</Button>
+                </div>
+                <Card>
+                    <table className="w-full text-left">
+                        <thead>
+                            <tr className="border-b border-border">
+                                <th className="pb-2 text-paragraph-sm text-ink-secondary font-medium">Insight</th>
+                                <th className="pb-2 text-paragraph-sm text-ink-secondary font-medium">Tipo</th>
+                                <th className="pb-2 text-paragraph-sm text-ink-secondary font-medium">Prioridad</th>
+                                <th className="pb-2 text-paragraph-sm text-ink-secondary font-medium">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {insights.length === 0 && (
+                                <tr>
+                                    <td colSpan={4} className="py-3 text-paragraph-sm text-ink-secondary">
+                                        Aún no hay insights.
+                                    </td>
+                                </tr>
+                            )}
+                            {insights.map((i) => (
+                                <tr key={i.id} className="border-b border-border last:border-0">
+                                    <td className="py-2">{i.descripcion}</td>
+                                    <td className="py-2">{TIPO_LABELS[i.tipo]}</td>
+                                    <td className="py-2">
+                                        <Badge variant={PRIORIDAD_BADGE_VARIANT[i.prioridad]}>
+                                            {PRIORIDAD_LABELS[i.prioridad]}
+                                        </Badge>
+                                    </td>
+                                    <td className="py-2">
+                                        <button
+                                            type="button"
+                                            aria-label={`Eliminar insight: ${i.descripcion}`}
+                                            onClick={() => handleRemoveInsight(i.id)}
+                                        >
+                                            ×
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </Card>
+            </section>
         </div>
     );
 }
