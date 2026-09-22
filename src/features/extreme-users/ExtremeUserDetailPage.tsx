@@ -1,4 +1,4 @@
-// src/features/super-expert-interviews/ExtremeUserDetailPage.tsx
+// src/features/extreme-users/ExtremeUserDetailPage.tsx
 // Read-only detail view of an extreme user, following the Figma card-grid layout:
 // top-left = profile, top-right = observed tasks, middle row = workarounds /
 // frictions / extreme need + hypothesis, bottom = evidence (full width).
