@@ -16,5 +16,29 @@ export interface Insight {
   prioridad: "alta" | "media" | "baja";
 }
 
-// Segmento y AsignacionSegmento (interfaz 5, Roper Dynagram) se agregan
-// aparte por Troy Moreno, en su propio commit — ver blueprint.md §4.1.
+// Dueño: interfaz 5 (Roper Dynagram) — Troy Moreno
+//
+// A propósito NO hay un campo de "% observado" aquí: se calcula en
+// runtime contando AsignacionSegmento por segmentoId sobre el total
+// (ver features/roper-dynagram/stats.ts), para que nunca se desincronice
+// de los registros reales — la rúbrica exige que la rueda se recalcule
+// sola al agregar o editar una asignación.
+export interface Segmento {
+  id: string;
+  nombre: string;
+  // Valores / estilo de vida que definen el segmento, ej. "Seguridad, pragmatismo"
+  // (investigacion_de_usuarios.md §5: "valores asociados").
+  criterio: string;
+  requisitoUX: string; // panel dinámico: requisito UX derivado
+  funcionalidadClave: string; // panel dinámico: funcionalidad clave
+  tonoSistema: string; // panel dinámico: tono del sistema
+}
+
+export interface AsignacionSegmento {
+  id: string;
+  // Usuario entrevistado. Mismo id que Insight.sujetoId cuando se trata
+  // de la misma persona (contrato acordado con interfaz 4 e interfaz 6).
+  sujetoId: string;
+  segmentoId: string;
+  evidencia: string;
+}
