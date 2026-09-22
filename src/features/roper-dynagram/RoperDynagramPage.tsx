@@ -1,7 +1,7 @@
 // features/roper-dynagram/RoperDynagramPage.tsx
 // "Roper Dynagram" interface entry point — investigacion_de_usuarios.md §5.
-// Segmento y AsignacionSegmento viven en types/common.ts (contrato de
-// blueprint.md §4.1); Sujeto es exclusivo de esta interfaz (types.ts).
+// Segmento and AsignacionSegmento live in types/common.ts (contract from
+// blueprint.md §4.1); Sujeto is exclusive to this interface (types.ts).
 
 import { useMemo, useState } from "react";
 import { Badge } from "../../components/ui/Badge";
@@ -44,9 +44,9 @@ export function RoperDynagramPage() {
   const [segmentoDeleteTarget, setSegmentoDeleteTarget] = useState<Segmento | null>(
     null,
   );
-  // Fuerza un formulario nuevo (sin arrastrar valores de la vez anterior)
-  // en cada apertura del modal, incluyendo dos "crear" consecutivos —
-  // ver comentario en el JSX del Modal, más abajo.
+  // Forces a fresh form (without carrying over values from the previous
+  // time) on every modal open, including two consecutive "create" opens —
+  // see the comment in the Modal's JSX further below.
   const [segmentoFormKey, setSegmentoFormKey] = useState(0);
 
   const [editingAsignacion, setEditingAsignacion] =
@@ -73,7 +73,7 @@ export function RoperDynagramPage() {
     setItem(ASIGNACIONES_KEY, next);
   }
 
-  // --- Sujetos entrevistados ---
+  // --- Interviewed subjects ---
 
   function handleAddSujeto() {
     if (!newSujetoNombre.trim()) return;
@@ -83,12 +83,12 @@ export function RoperDynagramPage() {
 
   function handleRemoveSujeto(id: string) {
     persistSujetos(removeFromList(sujetos, id));
-    // Las asignaciones de un sujeto eliminado dejan de tener sentido —
-    // se quitan junto con él para no dejar referencias huérfanas.
+    // Assignments for a removed subject no longer make sense —
+    // they're removed along with it so no orphan references are left.
     persistAsignaciones(asignaciones.filter((a) => a.sujetoId !== id));
   }
 
-  // --- Segmentos ---
+  // --- Segments ---
 
   function handleCreateSegmento() {
     setEditingSegmento(null);
@@ -122,7 +122,7 @@ export function RoperDynagramPage() {
     setSegmentoDeleteTarget(null);
   }
 
-  // --- Asignaciones ---
+  // --- Assignments ---
 
   function handleCreateAsignacion() {
     setEditingAsignacion(null);
@@ -152,7 +152,7 @@ export function RoperDynagramPage() {
     setAsignacionDeleteTarget(null);
   }
 
-  // --- Rueda + panel dinámico ---
+  // --- Wheel + dynamic panel ---
 
   const stats = useMemo(
     () => computeSegmentStats(segmentos, asignaciones),
@@ -212,7 +212,7 @@ export function RoperDynagramPage() {
         </p>
       </header>
 
-      {/* Sujetos entrevistados */}
+      {/* Interviewed subjects */}
       <section aria-labelledby="sujetos-heading" className="flex flex-col gap-3">
         <h2 id="sujetos-heading" className="text-heading-6 font-semibold text-ink-primary">
           Sujetos entrevistados
@@ -253,7 +253,7 @@ export function RoperDynagramPage() {
         )}
       </section>
 
-      {/* Segmentos */}
+      {/* Segments */}
       <section aria-labelledby="segmentos-heading" className="flex flex-col gap-3">
         <div className="flex items-center justify-between gap-4">
           <h2
@@ -281,7 +281,7 @@ export function RoperDynagramPage() {
         </Card>
       </section>
 
-      {/* Asignaciones */}
+      {/* Assignments */}
       <section aria-labelledby="asignaciones-heading" className="flex flex-col gap-3">
         <div className="flex items-center justify-between gap-4">
           <h2
@@ -317,7 +317,7 @@ export function RoperDynagramPage() {
         </Card>
       </section>
 
-      {/* Rueda + panel dinámico */}
+      {/* Wheel + dynamic panel */}
       <section
         aria-labelledby="rueda-heading"
         className="grid grid-cols-1 lg:grid-cols-2 gap-4"
@@ -340,18 +340,18 @@ export function RoperDynagramPage() {
         </div>
       </section>
 
-      {/* Modales: formularios y confirmaciones de eliminar */}
+      {/* Modals: forms and delete confirmations */}
       <Modal
         open={segmentoFormOpen}
         onClose={() => setSegmentoFormOpen(false)}
         title={editingSegmento ? "Editar segmento" : "Nuevo segmento"}
       >
         {/*
-          key=segmentoFormKey (no editingSegmento?.id ?? "new"): dos
-          aperturas en modo "crear" seguidas comparten el mismo "new" y
-          React reutilizaba la misma instancia del formulario, dejando
-          los valores de la vez anterior — el contador cambia en cada
-          apertura y fuerza un remount con el formulario en blanco.
+          key=segmentoFormKey (not editingSegmento?.id ?? "new"): two
+          consecutive "create" opens share the same "new" and React was
+          reusing the same form instance, carrying over values from the
+          previous time — the counter changes on every open and forces a
+          remount with a blank form.
         */}
         <SegmentoForm
           key={segmentoFormKey}

@@ -1,13 +1,13 @@
 // features/roper-dynagram/palette.ts
-// Paleta categórica para la rueda de segmentos.
+// Categorical palette for the segment wheel.
 //
-// PENDIENTE (blueprint.md §7): un color nuevo debe definirse primero en
-// Figma y reflejarse después en @theme (src/index.css) — pero el número
-// de segmentos aquí es dinámico (depende de los datos reales cargados),
-// así que este punto queda por resolver con Mike antes de la entrega
-// final. Mientras tanto, esta paleta local reutiliza los tonos que ya
-// existen en @theme como placeholder funcional, para no bloquear el
-// desarrollo (blueprint.md §9).
+// PENDING (blueprint.md §7): a new color must be defined in Figma
+// first and then reflected in @theme (src/index.css) — but the number
+// of segments here is dynamic (depends on the real data loaded), so
+// this point is still to be resolved with Mike before the final
+// delivery. In the meantime, this local palette reuses the tones that
+// already exist in @theme as a functional placeholder, so as not to
+// block development (blueprint.md §9).
 export const SEGMENT_PALETTE = [
   "#002e6b", // --color-primary
   "#1a7a53", // --color-success

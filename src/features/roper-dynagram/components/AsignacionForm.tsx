@@ -1,6 +1,6 @@
 // features/roper-dynagram/components/AsignacionForm.tsx
-// Formulario para asignar un sujeto entrevistado a un segmento, con
-// evidencia obligatoria — investigacion_de_usuarios.md §5.
+// Form for assigning an interviewed subject to a segment, with
+// mandatory evidence — investigacion_de_usuarios.md §5.
 
 import { useState, type FormEvent } from "react";
 import { Button } from "../../../components/ui/Button";

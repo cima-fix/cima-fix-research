@@ -1,7 +1,7 @@
 // features/roper-dynagram/components/DynamicPanel.tsx
-// Panel dinámico de salida: al seleccionar un segmento (en la rueda o en
-// la lista accesible), muestra su requisito UX derivado, funcionalidad
-// clave y tono del sistema — investigacion_de_usuarios.md §5.
+// Dynamic output panel: when a segment is selected (in the wheel or in
+// the accessible list), shows its derived UX requirement, key
+// functionality, and system tone — investigacion_de_usuarios.md §5.
 
 import { Card } from "../../../components/ui/Card";
 import type { Segmento } from "../../../types/common";

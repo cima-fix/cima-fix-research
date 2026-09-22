@@ -1,9 +1,9 @@
 // features/roper-dynagram/types.ts
-// Modelo de datos local de la interfaz "Roper Dynagram".
-// Segmento y AsignacionSegmento viven en types/common.ts (contrato de
-// blueprint.md §4.1, interfaz 5); este archivo solo agrega lo que es
-// exclusivo de esta interfaz: el sujeto entrevistado que se asigna a
-// uno o más segmentos.
+// Local data model for the "Roper Dynagram" interface.
+// Segmento and AsignacionSegmento live in types/common.ts (contract
+// from blueprint.md §4.1, interface 5); this file only adds what is
+// exclusive to this interface: the interviewed subject that gets
+// assigned to one or more segments.
 
 import type { Identifiable } from "../../lib/list";
 

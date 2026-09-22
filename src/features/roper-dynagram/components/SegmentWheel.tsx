@@ -1,12 +1,12 @@
 // features/roper-dynagram/components/SegmentWheel.tsx
-// Rueda de segmentos (gráfico polar) — investigacion_de_usuarios.md §5.
-// El tamaño de cada gajo viene de SegmentStat.porcentaje (../stats.ts),
-// derivado en runtime a partir de las asignaciones reales: se recalcula
-// solo cuando cambian los datos, nunca es un valor fijo.
+// Segment wheel (polar chart) — investigacion_de_usuarios.md §5.
+// Each slice's size comes from SegmentStat.porcentaje (../stats.ts),
+// derived at runtime from the real assignments: it's recalculated
+// only when the data changes, it's never a fixed value.
 //
-// La lista de botones debajo del gráfico es la vía accesible: el
-// gráfico de Recharts se marca aria-hidden porque no es operable por
-// teclado, pero cada segmento sigue siendo seleccionable sin mouse.
+// The button list below the chart is the accessible path: the
+// Recharts chart is marked aria-hidden because it isn't keyboard
+// operable, but every segment is still selectable without a mouse.
 
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 import { cn } from "../../../lib/cn";
@@ -37,12 +37,12 @@ export function SegmentWheel({
   return (
     <div className={cn("w-full flex flex-col gap-3", className)}>
       {/*
-        [&_*]:outline-none: Recharts marca sus sectores como enfocables
-        (tabIndex) por accesibilidad interna, pero aquí ya son
-        aria-hidden y la alternativa accesible real es la lista de
-        botones de abajo — sin esto, un clic con mouse deja el foco del
-        navegador (y su contorno) sobre el SVG, que se ve como si todo
-        el recuadro quedara "seleccionado".
+        [&_*]:outline-none: Recharts marks its sectors as focusable
+        (tabIndex) for internal accessibility, but here they're already
+        aria-hidden and the real accessible alternative is the button
+        list below — without this, a mouse click leaves the browser's
+        focus (and its outline) on the SVG, which looks like the whole
+        box got "selected".
       */}
       <div className="h-64 w-full [&_*]:outline-none" aria-hidden="true">
         {hasData ? (

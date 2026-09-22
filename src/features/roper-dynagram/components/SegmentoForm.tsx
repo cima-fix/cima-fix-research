@@ -1,7 +1,7 @@
 // features/roper-dynagram/components/SegmentoForm.tsx
-// Formulario para crear/editar un Segmento: nombre, valores/criterio, y
-// los tres campos que alimenta el panel dinámico de salida. El % no se
-// captura aquí — se deriva en runtime (ver ../stats.ts).
+// Form for creating/editing a Segmento: name, values/criteria, and
+// the three fields that feed the dynamic output panel. The % isn't
+// captured here — it's derived at runtime (see ../stats.ts).
 
 import { useState, type FormEvent } from "react";
 import { Button } from "../../../components/ui/Button";
