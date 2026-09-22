@@ -4,8 +4,8 @@ import { NotFound } from "./components/layout/NotFound.tsx";
 import { LandingPage } from "./pages/LandingPage.tsx";
 import { ExpertInterviewsPage } from "./features/expert-interviews/ExpertInterviewsPage.tsx";
 import { ExpertInterviewDetailPage } from "./features/expert-interviews/ExpertInterviewDetailPage.tsx";
-import { ExtremeUsersPage } from "./features/super-expert-interviews/ExtremeUserPage.tsx";
-import { ExtremeUserDetailPage } from "./features/super-expert-interviews/ExtremeUserDetailPage.tsx";
+import { ExtremeUsersPage } from "./features/extreme-users/ExtremeUserPage.tsx";
+import { ExtremeUserDetailPage } from "./features/extreme-users/ExtremeUserDetailPage.tsx";
 
 export const router = createBrowserRouter([
   {
