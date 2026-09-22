@@ -10,6 +10,7 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   { label: "Entrevista a Expertos", path: "/expert-interviews" },
   { label: "Usuarios Extremos", path: "/extreme-users" },
+  { label: "Needfinding", path: "/needfinding" },
   { label: "Empathy Map", path: "/empathy-map" },
   { label: "Roper Dynagram", path: "/roper-dynagram" },
 ];
