@@ -7,6 +7,7 @@ export interface Subject {
 
 export interface Fragment {
   id: string;
+  sujetoId: string;
   texto: string;
   estado: "sin-clasificar" | "clasificado";
   cuadrante?: Quadrant;
