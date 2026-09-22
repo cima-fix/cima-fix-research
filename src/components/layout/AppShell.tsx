@@ -12,7 +12,7 @@ export function AppShell({ className, ...props }: AppShellProps) {
       {...props}
     >
       <NavMenu />
-      <main className={cn("w-full", PAGE_GUTTER_X)}>
+      <main className={cn("w-full py-8", PAGE_GUTTER_X)}>
         <Outlet />
       </main>
     </div>
