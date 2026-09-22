@@ -1,8 +1,8 @@
 // features/needfinding/components/ObservationCard.tsx
 //
-// SUPUESTO SIN VERIFICAR: se asume que `Button` acepta `variant`/`size` y que
-// `Badge` acepta `variant: "success" | "danger" | "warning" | "neutral"` tal
-// como los describe blueprint.md §6. Ajustar si la firma real difiere.
+// UNVERIFIED ASSUMPTION: assumes `Button` accepts `variant`/`size` and that
+// `Badge` accepts `variant: "success" | "danger" | "warning" | "neutral"` as
+// described in blueprint.md §6. Adjust if the real signature differs.
 
 import { Card } from "../../../components/ui/Card.tsx";
 import { Badge } from "../../../components/ui/Badge.tsx";

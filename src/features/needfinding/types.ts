@@ -1,32 +1,32 @@
 // features/needfinding/types.ts
 //
-// Modelo de datos específico de esta interfaz (ver blueprint.md §4).
-// Campos definidos en investigacion_de_usuarios.md §3 ("El Iceberg"):
-// contexto de observación, dos capas del iceberg (obvia/oculta), separación
-// explícita dato crudo vs. interpretación, y potencial de innovación.
+// Data model specific to this interface (see blueprint.md §4).
+// Fields defined in investigacion_de_usuarios.md §3 ("The Iceberg"):
+// observation context, two layers of the iceberg (obvious/hidden), explicit
+// separation of raw data vs. interpretation, and innovation potential.
 
 export type InnovationPotential = "alto" | "bajo";
 
 export interface NeedfindingObservation {
   id: string;
 
-  // Contexto de observación
+  // Observation context
   location: string;
-  date: string; // yyyy-mm-dd, valor nativo de <input type="date">
+  date: string; // yyyy-mm-dd, native value of <input type="date">
   duration: string;
   activity: string;
 
-  // Capa superficie: necesidades obvias (lo que el usuario dice / feature requests)
+  // Surface layer: obvious needs (what the user says / feature requests)
   obviousNeeds: string;
 
-  // Capa profundidad: necesidades ocultas (frustraciones silenciadas, emociones)
+  // Depth layer: hidden needs (silenced frustrations, emotions)
   hiddenNeeds: string;
 
-  // Separación explícita entre dato crudo e interpretación (investigacion_de_usuarios.md §3)
+  // Explicit separation between raw data and interpretation (investigacion_de_usuarios.md §3)
   rawData: string;
   interpretation: string;
 
-  // Etiqueta de potencial de innovación
+  // Innovation potential tag
   innovationPotential: InnovationPotential;
 }
 
