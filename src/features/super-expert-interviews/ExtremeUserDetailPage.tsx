@@ -66,14 +66,14 @@ export function ExtremeUserDetailPage() {
   } = user;
 
   return (
-    <div className="w-full flex flex-col gap-4">
+    <div className="w-full flex flex-col gap-2.5 lg:gap-16">
       <Link to="/extreme-users" className="text-primary underline w-fit text-body-sm">
         ← Volver a la lista
       </Link>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
         {/* Top-left: profile */}
-        <Card className="flex flex-col gap-3">
+        <Card className="flex flex-col gap-2.5">
           <div className="flex items-center gap-3">
             <div
               aria-hidden="true"
@@ -105,7 +105,7 @@ export function ExtremeUserDetailPage() {
         </Card>
 
         {/* Top-right: observed tasks */}
-        <Card className="flex flex-col gap-3">
+        <Card className="flex flex-col gap-2.5">
           <h2 className="text-body-sm font-medium text-ink-primary">Observed tasks</h2>
           <TagGroup items={observedTasks} emptyLabel="No tasks recorded." variant="neutral" />
         </Card>
@@ -113,21 +113,21 @@ export function ExtremeUserDetailPage() {
 
       {/* Middle row: workarounds / frictions / extreme need + hypothesis */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <Card className="flex flex-col gap-3">
+        <Card className="flex flex-col gap-2.5">
           <h2 className="text-body-sm font-medium text-ink-primary">
             Workarounds / manual adaptations
           </h2>
           <TagGroup items={workarounds} emptyLabel="None recorded." variant="neutral" />
         </Card>
 
-        <Card className="flex flex-col gap-3">
+        <Card className="flex flex-col gap-2.5">
           <h2 className="text-body-sm font-medium text-ink-primary">
             Frictions this user amplifies
           </h2>
           <TagGroup items={amplifiedFrictions} emptyLabel="None recorded." variant="danger" />
         </Card>
 
-        <Card className="flex flex-col gap-3">
+        <Card className="flex flex-col gap-2.5">
           <h2 className="text-body-sm font-medium text-ink-primary">
             Extreme need + generalization hypothesis
           </h2>
@@ -147,7 +147,7 @@ export function ExtremeUserDetailPage() {
       </div>
 
       {/* Bottom: evidence, full width */}
-      <Card className="flex flex-col gap-3">
+      <Card className="flex flex-col gap-2.5">
         <h2 className="text-body-sm font-medium text-ink-primary">Evidence</h2>
         {evidence.length === 0 ? (
           <p className="text-body-xs text-ink-secondary">No evidence recorded.</p>
