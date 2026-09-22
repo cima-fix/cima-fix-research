@@ -16,20 +16,5 @@ export interface Insight {
   prioridad: "alta" | "media" | "baja";
 }
 
-// Dueño: interfaz 5 (Roper Dynagram) — Troy Moreno
-export interface Segmento {
-  id: string;
-  nombre: string;
-  criterio: string;
-  requisitoUX: string;
-  funcionalidadClave: string;
-  tonoSistema: string;
-}
-
-// Dueño: interfaz 5 (Roper Dynagram) — Troy Moreno
-export interface AsignacionSegmento {
-  id: string;
-  sujetoId: string;
-  segmentoId: string;
-  evidencia: string;
-}
+// Segmento y AsignacionSegmento (interfaz 5, Roper Dynagram) se agregan
+// aparte por Troy Moreno, en su propio commit — ver blueprint.md §4.1.
