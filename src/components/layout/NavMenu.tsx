@@ -13,6 +13,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Needfinding", path: "/needfinding" },
   { label: "Empathy Map", path: "/empathy-map" },
   { label: "Roper Dynagram", path: "/roper-dynagram" },
+  { label: "Mapeo de Requerimientos", path: "/requirements-mapping" },
 ];
 
 export const PAGE_GUTTER_X = "px-6 sm:px-10 lg:px-16 xl:px-24 2xl:px-36";
