@@ -1,0 +1,90 @@
+{
+  "cima-fix-research:extreme-users:users": [
+    {
+      "id": "d4e99e14-8919-538b-b00b-456a8829167d",
+      "classification": "super-experto",
+      "alias": "Odín Isaac Meling",
+      "usageContext": "Encargado de laboratorios de cómputo y soporte de proyectores; atiende todos los reportes que llegan por el QR (Google Sites + Forms + Sheets).",
+      "usageFrequency": "Diario, desde 2024-1",
+      "skillLevel": 9,
+      "observedTasks": [
+        "Recibe la notificación del formulario",
+        "Revisa manualmente el horario del salón para saber cuándo está libre",
+        "Diagnostica la falla en sitio (ej. cable HDMI dañado)",
+        "Gestiona la compra del repuesto y repara",
+        "Notifica al docente por correo que la falla fue resuelta"
+      ],
+      "workarounds": [
+        "Construyó su propio sistema con Google Sites, Forms y Sheets",
+        "Respaldos manuales: copia el formulario y crea pestañas/sitios por semestre",
+        "Restringe el acceso a correos @uabc.edu.mx de docentes"
+      ],
+      "amplifiedFrictions": [
+        "Cruzar a mano el reporte con el horario del salón",
+        "Reportes informales por WhatsApp o de pasillo sin registro",
+        "Detectar duplicados manualmente"
+      ],
+      "extremeNeed": "Registro formal centralizado que cruce el reporte con la disponibilidad del salón",
+      "generalizationHypothesis": "Si el sistema muestra cuándo está libre el salón y agrupa duplicados, cualquier encargado podrá atender reportes sin depender de la experiencia de Odín.",
+      "evidence": [
+        "\"Le diría que NO atienda reportes informales de pasillo, por WhatsApp o de palabra.\"",
+        "\"Una aplicación no puede sustituir el criterio técnico de ir presencialmente al salón.\""
+      ]
+    },
+    {
+      "id": "1707d0fe-ddbe-5488-aeba-9faf67ffbb28",
+      "classification": "inexperto",
+      "alias": "Lupita",
+      "usageContext": "Estudiante de Nanotecnología (5to semestre); reportaba fallas de proyector como jefa de grupo, a petición de los maestros.",
+      "usageFrequency": "Ocasional, varias veces como jefa de grupo",
+      "skillLevel": 3,
+      "observedTasks": [
+        "Escanea el QR del salón",
+        "Sale del salón a buscar el número de salón para llenar el formulario",
+        "Consulta una hoja de Excel compartida para ver el estatus"
+      ],
+      "workarounds": [
+        "Levantaba más reportes del mismo problema para \"meter presión\"",
+        "Dejó de revisar el estatus y solo comprobaba si el proyector ya servía"
+      ],
+      "amplifiedFrictions": [
+        "No sabe el número de salón",
+        "Sin confirmación inmediata de que el reporte llegó",
+        "Demasiados pasos para ver el estatus"
+      ],
+      "extremeNeed": "Saber el estado del reporte sin buscarlo y sin escribir datos que no conoce",
+      "generalizationHypothesis": "Si el QR ya trae el salón precargado y se notifica el cambio de estado, ningún usuario tendrá que duplicar reportes para ser escuchado.",
+      "evidence": [
+        "\"Tener que escribir el número de salón, muchas veces no sabía cuál era y tenía que salir a ver.\"",
+        "\"Me pedían levantar más reportes para meter presión.\""
+      ]
+    },
+    {
+      "id": "48dcdbaf-8205-5eb8-aefd-1252b99cdb60",
+      "classification": "mainstream",
+      "alias": "Jonatan Crespo Ragland",
+      "usageContext": "Profesor de asignatura; usa el QR ocasionalmente.",
+      "usageFrequency": "Un par de veces por semestre",
+      "skillLevel": 5,
+      "observedTasks": [
+        "Nota una falla durante la clase",
+        "Deja el reporte para después según la severidad",
+        "Vuelve a revisar para dar seguimiento"
+      ],
+      "workarounds": [
+        "Compró él mismo un cable que no funcionaba en lugar de reportarlo"
+      ],
+      "amplifiedFrictions": [
+        "El sistema no es de fácil acceso ni conocido",
+        "Desconfía de los QR pegados: cualquiera puede poner uno",
+        "Nunca sabe qué pasó con su reporte"
+      ],
+      "extremeNeed": "Confirmación de que el reporte fue recibido y está en progreso",
+      "generalizationHypothesis": "Un acuse de recibo y un estado visible harían que los docentes reporten en vez de resolver por su cuenta.",
+      "evidence": [
+        "\"No es fácil acceso.\"",
+        "\"Fue un cable que no funcionaba y lo compré yo.\""
+      ]
+    }
+  ]
+}

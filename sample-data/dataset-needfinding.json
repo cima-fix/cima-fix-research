@@ -1,0 +1,52 @@
+{
+  "cima-fix-research:needfinding:observations": [
+    {
+      "id": "36699985-3c7a-5ac6-bf16-43c3e6754300",
+      "location": "Laboratorios de cómputo, Facultad de Ingeniería, Campus Sauzal",
+      "date": "2026-09-18",
+      "duration": "30-40 min",
+      "activity": "Atención de reportes de proyectores recibidos por el formulario del QR",
+      "obviousNeeds": "Que todos los reportes lleguen por el canal formal y no por WhatsApp o de pasillo.",
+      "hiddenNeeds": "Evitar la carga de cruzar a mano horarios de salones y de detectar duplicados; proteger sus datos (hace respaldos por desconfianza).",
+      "rawData": "\"Debe revisar manualmente el horario del salón para identificar cuándo está libre de clases.\" Hace copias del formulario por semestre.",
+      "interpretation": "El trabajo invisible del técnico es la coordinación, no la reparación: el sistema debe mostrar disponibilidad del salón y agrupar duplicados.",
+      "innovationPotential": "alto"
+    },
+    {
+      "id": "eb3fdd19-cc74-5c63-8ff0-23db1e2ec7f3",
+      "location": "Salones de clase, Campus Sauzal",
+      "date": "2026-09-17",
+      "duration": "15-20 min",
+      "activity": "Levantar un reporte de proyector por QR como jefa de grupo",
+      "obviousNeeds": "Un formulario más corto y ver el estatus del reporte.",
+      "hiddenNeeds": "Sentir que el reporte sirve; hoy duplica reportes para presionar.",
+      "rawData": "\"Tener que escribir el número de salón... tenía que salir a ver.\" \"Me pedían levantar más reportes para meter presión.\"",
+      "interpretation": "El salón debería venir precargado en el QR, y los duplicados son una señal de falta de retroalimentación.",
+      "innovationPotential": "alto"
+    },
+    {
+      "id": "0c614618-5eb9-5662-95af-80c20c981523",
+      "location": "Aulas de la Facultad de Ingeniería, Campus Sauzal",
+      "date": "2026-09-18",
+      "duration": "15-20 min",
+      "activity": "Uso ocasional del QR para reportar fallas en el aula",
+      "obviousNeeds": "Un sistema de fácil acceso e intuitivo.",
+      "hiddenNeeds": "Confianza: no sabe si el QR es oficial ni si alguien lee su reporte; termina resolviendo por su cuenta.",
+      "rawData": "\"Cualquiera puede llegar y poner su QR, entonces quién sabe que sean reales.\" Compró un cable él mismo.",
+      "interpretation": "La adopción depende de legitimidad visible (marca institucional) y de un acuse de recibo.",
+      "innovationPotential": "bajo"
+    },
+    {
+      "id": "fcb53ab9-5f90-5079-be10-31dbba8dc2ef",
+      "location": "Administración, Facultad de Ingeniería, Campus Sauzal",
+      "date": "2026-09-04",
+      "duration": "30-40 min",
+      "activity": "Gestión y supervisión de reportes de mantenimiento",
+      "obviousNeeds": "Más categorías de reporte y una interfaz visual.",
+      "hiddenNeeds": "Saber si un reporte sigue pendiente; hoy los reportes se pierden entre 4 canales.",
+      "rawData": "\"Si hay duplicidad en reportes, incluso en las 4 vías que mencioné, lo tiene que revisar manualmente el técnico.\"",
+      "interpretation": "Hace falta un único punto de entrada con estados claros para que la administración tenga visibilidad.",
+      "innovationPotential": "alto"
+    }
+  ]
+}
