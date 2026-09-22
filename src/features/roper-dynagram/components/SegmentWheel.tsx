@@ -67,7 +67,9 @@ export function SegmentWheel({
                   />
                 ))}
               </Pie>
-              <Tooltip formatter={(value: number) => [`${value} asignación(es)`, "Conteo"]} />
+              <Tooltip
+                formatter={(value) => [`${value ?? 0} asignación(es)`, "Conteo"]}
+              />
             </PieChart>
           </ResponsiveContainer>
         ) : (
