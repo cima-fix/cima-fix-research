@@ -7,7 +7,9 @@ interface NavItem {
   path: string;
 }
 
-const NAV_ITEMS: NavItem[] = [];
+const NAV_ITEMS: NavItem[] = [
+  { label: "Entrevista a Expertos", path: "/expert-interviews" },
+];
 
 export const PAGE_GUTTER_X = "px-6 sm:px-10 lg:px-16 xl:px-24 2xl:px-36";
 
