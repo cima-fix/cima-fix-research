@@ -1,0 +1,593 @@
+{
+  "cima-fix-research:expert-interviews:interviews": [
+    {
+      "id": "0ce47570-43ab-58f8-9d0a-67d25cd2eaef",
+      "perfil": {
+        "alias": "Alfonso Elias Ibarra Collins",
+        "rol": "Administrador de la facultad",
+        "dominio": "Contable financiero y presupuesto",
+        "aniosExperiencia": 2,
+        "organizacion": "Facultad de Ingeniería, UABC Campus Sauzal",
+        "fecha": "2026-09-04",
+        "medio": "presencial"
+      },
+      "guion": [
+        {
+          "id": "2d9a0d21-5add-5956-9517-7faa556e55ad",
+          "pregunta": "¿Cómo se entera usted de que existe una incidencia?",
+          "respuesta": "Todas las formas, QR, WhatsApp, personalmente, correos electrónicos.",
+          "esCitaTextualClave": false
+        },
+        {
+          "id": "64e702e2-842c-59c7-b021-76556ef5cf65",
+          "pregunta": "Una vez recibido un reporte, ¿queda registrado en algún lado?",
+          "respuesta": "Generalmente les pido que lo hagan a través del correo electrónico o QR, para que haya un registro por escrito. Lo revisa el técnico del área de cómputo.",
+          "esCitaTextualClave": false
+        },
+        {
+          "id": "52290960-16a2-5a89-a2fe-e07ff5854542",
+          "pregunta": "¿Cómo se da cuenta hoy si dos personas reportaron el mismo problema?",
+          "respuesta": "Si hay duplicidad en reportes, incluso en las 4 vías que mencioné, lo tiene que revisar manualmente el técnico.",
+          "esCitaTextualClave": true
+        },
+        {
+          "id": "bea7906b-4b26-5d03-ba4a-67dfcdeeed90",
+          "pregunta": "Cuando un problema se resuelve, ¿alguien le avisa a quien lo reportó?",
+          "respuesta": "Hay un problema con la vía de comunicación, normalmente no se entera. Si son estudiantes no se enteran.",
+          "esCitaTextualClave": true
+        },
+        {
+          "id": "cb26ffb4-35ff-5fb1-abc8-47fddc69c9b6",
+          "pregunta": "¿Por qué cree que el código QR actual no se conoce ni se usa?",
+          "respuesta": "Falta mayor difusión. Pegamos el QR en las aulas y pedí una infografía para proyectar en las pantallas; hace falta imprimirlas.",
+          "esCitaTextualClave": false
+        },
+        {
+          "id": "9de4b2f4-4e2e-5d04-807b-f9af98ea7f66",
+          "pregunta": "¿Con qué frecuencia realista revisaría el sistema?",
+          "respuesta": "Varias veces a la semana, a través del técnico, que está en el E34.",
+          "esCitaTextualClave": false
+        },
+        {
+          "id": "addd607b-8d5e-5ca1-aedd-00ec9c19b4b5",
+          "pregunta": "¿Qué le facilitaría revisar el sistema con regularidad?",
+          "respuesta": "Que sea lo más visual posible.",
+          "esCitaTextualClave": true
+        },
+        {
+          "id": "be89ee38-d813-52a1-89c8-e8f4b3735766",
+          "pregunta": "¿Cómo reaccionarían los reportantes al ver su correo visible?",
+          "respuesta": "El mecanismo actual lo cerramos a los docentes, que son los principales usuarios, para que no haya reportes innecesarios. Debería mantenerse principalmente para docentes.",
+          "esCitaTextualClave": false
+        },
+        {
+          "id": "ee45ce5b-f8d7-59f4-a649-5e5f81b41dcf",
+          "pregunta": "¿El correo es un canal confiable para notificar una asignación?",
+          "respuesta": "Deberíamos acotarlo al correo, porque es el institucional y tiene una comunicación más oficial.",
+          "esCitaTextualClave": false
+        },
+        {
+          "id": "d99f4171-8d45-5935-bdc4-e0da1d513539",
+          "pregunta": "¿Qué categoría es más urgente?",
+          "respuesta": "No es lo mismo que te digan \"cambia ese foco\" a \"se tapó el baño y se está desbordando\". Los proyectores se arreglan internamente; el mantenimiento general es otra área.",
+          "esCitaTextualClave": true
+        },
+        {
+          "id": "ee3e9940-9faf-5f2c-8280-893c58dfe34c",
+          "pregunta": "¿Ha pasado que un reporte quede sin que nadie sepa si sigue pendiente?",
+          "respuesta": "Sí.",
+          "esCitaTextualClave": false
+        },
+        {
+          "id": "c7cabd66-9cbe-51a9-8564-c94f8984353d",
+          "pregunta": "¿Qué tomaría en cuenta antes de adoptar un sistema nuevo?",
+          "respuesta": "Que sea muy fácil, visual. Debe de ser intuitivo.",
+          "esCitaTextualClave": true
+        }
+      ],
+      "complejidadTecnica": {
+        "conceptosClave": [
+          "Reporte por código QR",
+          "Duplicidad de reportes",
+          "Seguimiento del estado",
+          "Notificación al reportante"
+        ],
+        "jergaDelDominio": [
+          "SUEP (Sistema Universitario Electrónico de Pagos)",
+          "B = baño",
+          "F = fuga",
+          "E34 (edificio del técnico)"
+        ],
+        "dependenciasEntreComponentes": [
+          "Proyectores y equipo audiovisual: se atienden internamente por el técnico de cómputo",
+          "Mantenimiento general: requiere solicitud vía SUEP a otra área fuera de la facultad"
+        ],
+        "actoresDelEcosistema": [
+          "Administrador de la facultad",
+          "Técnico de cómputo",
+          "Área de mantenimiento",
+          "Docentes",
+          "Estudiantes",
+          "Prestadores de servicio social"
+        ]
+      },
+      "restriccionesYRiesgos": [
+        "Reportes restringidos a docentes con correo institucional",
+        "A lo mucho dos encargados; a veces el técnico tiene servicio social",
+        "La categoría de mantenimiento es muy amplia: faltan categorías en la plantilla inicial",
+        "Reemplazar equipo (ej. un cañón quemado) es un proceso larguísimo",
+        "Los estudiantes no se enteran cuando se resuelve su reporte"
+      ],
+      "referencias": [
+        {
+          "id": "29daeed9-2f3e-5896-9c16-334d16b14956",
+          "descripcion": "Sistema eObras (referencia sugerida por el entrevistado)"
+        },
+        {
+          "id": "64938343-f0d2-59e6-a674-9fb00fdffe4a",
+          "descripcion": "SUEP — Sistema Universitario Electrónico de Pagos, usado para solicitar mantenimiento"
+        }
+      ],
+      "notas": "Entrevista grabada con consentimiento. El entrevistado mostró un ejemplo de interfaz visual (min 14:50). Algunas preguntas (11, 18) le parecieron ambiguas.",
+      "siguientesPasos": "Ampliar la plantilla de categorías, validar el flujo de notificación por correo institucional y revisar eObras como referencia."
+    }
+  ],
+  "cima-fix-research:extreme-users:users": [
+    {
+      "id": "d4e99e14-8919-538b-b00b-456a8829167d",
+      "classification": "super-experto",
+      "alias": "Odín Isaac Meling",
+      "usageContext": "Encargado de laboratorios de cómputo y soporte de proyectores; atiende todos los reportes que llegan por el QR (Google Sites + Forms + Sheets).",
+      "usageFrequency": "Diario, desde 2024-1",
+      "skillLevel": 9,
+      "observedTasks": [
+        "Recibe la notificación del formulario",
+        "Revisa manualmente el horario del salón para saber cuándo está libre",
+        "Diagnostica la falla en sitio (ej. cable HDMI dañado)",
+        "Gestiona la compra del repuesto y repara",
+        "Notifica al docente por correo que la falla fue resuelta"
+      ],
+      "workarounds": [
+        "Construyó su propio sistema con Google Sites, Forms y Sheets",
+        "Respaldos manuales: copia el formulario y crea pestañas/sitios por semestre",
+        "Restringe el acceso a correos @uabc.edu.mx de docentes"
+      ],
+      "amplifiedFrictions": [
+        "Cruzar a mano el reporte con el horario del salón",
+        "Reportes informales por WhatsApp o de pasillo sin registro",
+        "Detectar duplicados manualmente"
+      ],
+      "extremeNeed": "Registro formal centralizado que cruce el reporte con la disponibilidad del salón",
+      "generalizationHypothesis": "Si el sistema muestra cuándo está libre el salón y agrupa duplicados, cualquier encargado podrá atender reportes sin depender de la experiencia de Odín.",
+      "evidence": [
+        "\"Le diría que NO atienda reportes informales de pasillo, por WhatsApp o de palabra.\"",
+        "\"Una aplicación no puede sustituir el criterio técnico de ir presencialmente al salón.\""
+      ]
+    },
+    {
+      "id": "1707d0fe-ddbe-5488-aeba-9faf67ffbb28",
+      "classification": "inexperto",
+      "alias": "Lupita",
+      "usageContext": "Estudiante de Nanotecnología (5to semestre); reportaba fallas de proyector como jefa de grupo, a petición de los maestros.",
+      "usageFrequency": "Ocasional, varias veces como jefa de grupo",
+      "skillLevel": 3,
+      "observedTasks": [
+        "Escanea el QR del salón",
+        "Sale del salón a buscar el número de salón para llenar el formulario",
+        "Consulta una hoja de Excel compartida para ver el estatus"
+      ],
+      "workarounds": [
+        "Levantaba más reportes del mismo problema para \"meter presión\"",
+        "Dejó de revisar el estatus y solo comprobaba si el proyector ya servía"
+      ],
+      "amplifiedFrictions": [
+        "No sabe el número de salón",
+        "Sin confirmación inmediata de que el reporte llegó",
+        "Demasiados pasos para ver el estatus"
+      ],
+      "extremeNeed": "Saber el estado del reporte sin buscarlo y sin escribir datos que no conoce",
+      "generalizationHypothesis": "Si el QR ya trae el salón precargado y se notifica el cambio de estado, ningún usuario tendrá que duplicar reportes para ser escuchado.",
+      "evidence": [
+        "\"Tener que escribir el número de salón, muchas veces no sabía cuál era y tenía que salir a ver.\"",
+        "\"Me pedían levantar más reportes para meter presión.\""
+      ]
+    },
+    {
+      "id": "48dcdbaf-8205-5eb8-aefd-1252b99cdb60",
+      "classification": "mainstream",
+      "alias": "Jonatan Crespo Ragland",
+      "usageContext": "Profesor de asignatura; usa el QR ocasionalmente.",
+      "usageFrequency": "Un par de veces por semestre",
+      "skillLevel": 5,
+      "observedTasks": [
+        "Nota una falla durante la clase",
+        "Deja el reporte para después según la severidad",
+        "Vuelve a revisar para dar seguimiento"
+      ],
+      "workarounds": [
+        "Compró él mismo un cable que no funcionaba en lugar de reportarlo"
+      ],
+      "amplifiedFrictions": [
+        "El sistema no es de fácil acceso ni conocido",
+        "Desconfía de los QR pegados: cualquiera puede poner uno",
+        "Nunca sabe qué pasó con su reporte"
+      ],
+      "extremeNeed": "Confirmación de que el reporte fue recibido y está en progreso",
+      "generalizationHypothesis": "Un acuse de recibo y un estado visible harían que los docentes reporten en vez de resolver por su cuenta.",
+      "evidence": [
+        "\"No es fácil acceso.\"",
+        "\"Fue un cable que no funcionaba y lo compré yo.\""
+      ]
+    }
+  ],
+  "cima-fix-research:needfinding:observations": [
+    {
+      "id": "36699985-3c7a-5ac6-bf16-43c3e6754300",
+      "location": "Laboratorios de cómputo, Facultad de Ingeniería, Campus Sauzal",
+      "date": "2026-09-18",
+      "duration": "30-40 min",
+      "activity": "Atención de reportes de proyectores recibidos por el formulario del QR",
+      "obviousNeeds": "Que todos los reportes lleguen por el canal formal y no por WhatsApp o de pasillo.",
+      "hiddenNeeds": "Evitar la carga de cruzar a mano horarios de salones y de detectar duplicados; proteger sus datos (hace respaldos por desconfianza).",
+      "rawData": "\"Debe revisar manualmente el horario del salón para identificar cuándo está libre de clases.\" Hace copias del formulario por semestre.",
+      "interpretation": "El trabajo invisible del técnico es la coordinación, no la reparación: el sistema debe mostrar disponibilidad del salón y agrupar duplicados.",
+      "innovationPotential": "alto"
+    },
+    {
+      "id": "eb3fdd19-cc74-5c63-8ff0-23db1e2ec7f3",
+      "location": "Salones de clase, Campus Sauzal",
+      "date": "2026-09-17",
+      "duration": "15-20 min",
+      "activity": "Levantar un reporte de proyector por QR como jefa de grupo",
+      "obviousNeeds": "Un formulario más corto y ver el estatus del reporte.",
+      "hiddenNeeds": "Sentir que el reporte sirve; hoy duplica reportes para presionar.",
+      "rawData": "\"Tener que escribir el número de salón... tenía que salir a ver.\" \"Me pedían levantar más reportes para meter presión.\"",
+      "interpretation": "El salón debería venir precargado en el QR, y los duplicados son una señal de falta de retroalimentación.",
+      "innovationPotential": "alto"
+    },
+    {
+      "id": "0c614618-5eb9-5662-95af-80c20c981523",
+      "location": "Aulas de la Facultad de Ingeniería, Campus Sauzal",
+      "date": "2026-09-18",
+      "duration": "15-20 min",
+      "activity": "Uso ocasional del QR para reportar fallas en el aula",
+      "obviousNeeds": "Un sistema de fácil acceso e intuitivo.",
+      "hiddenNeeds": "Confianza: no sabe si el QR es oficial ni si alguien lee su reporte; termina resolviendo por su cuenta.",
+      "rawData": "\"Cualquiera puede llegar y poner su QR, entonces quién sabe que sean reales.\" Compró un cable él mismo.",
+      "interpretation": "La adopción depende de legitimidad visible (marca institucional) y de un acuse de recibo.",
+      "innovationPotential": "bajo"
+    },
+    {
+      "id": "fcb53ab9-5f90-5079-be10-31dbba8dc2ef",
+      "location": "Administración, Facultad de Ingeniería, Campus Sauzal",
+      "date": "2026-09-04",
+      "duration": "30-40 min",
+      "activity": "Gestión y supervisión de reportes de mantenimiento",
+      "obviousNeeds": "Más categorías de reporte y una interfaz visual.",
+      "hiddenNeeds": "Saber si un reporte sigue pendiente; hoy los reportes se pierden entre 4 canales.",
+      "rawData": "\"Si hay duplicidad en reportes, incluso en las 4 vías que mencioné, lo tiene que revisar manualmente el técnico.\"",
+      "interpretation": "Hace falta un único punto de entrada con estados claros para que la administración tenga visibilidad.",
+      "innovationPotential": "alto"
+    }
+  ],
+  "cima-fix-research:empathy-map:subjects": [
+    {
+      "id": "349db877-9f1a-585b-bfa2-4fd57ebecda7",
+      "nombre": "Alfonso (Administrador)"
+    },
+    {
+      "id": "ce709a1a-ddf1-5698-b6c9-33a214ea619f",
+      "nombre": "Odín (Técnico)"
+    },
+    {
+      "id": "5d3ec689-cfc0-58fb-8a39-1437ff124a11",
+      "nombre": "Lupita (Estudiante)"
+    },
+    {
+      "id": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "nombre": "Jonatan (Docente)"
+    }
+  ],
+  "cima-fix-research:empathy-map:fragments": [
+    {
+      "id": "b3ab3c1b-d906-55f7-9723-e20791473c4f",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "texto": "Yo creo que no es de fácil acceso, fácil conocimiento.",
+      "estado": "clasificado",
+      "cuadrante": "dice"
+    },
+    {
+      "id": "cdc5b22e-f78d-5d60-b263-ae4861f56b06",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "texto": "Compró él mismo un cable que no funcionaba en lugar de reportarlo.",
+      "estado": "clasificado",
+      "cuadrante": "hace"
+    },
+    {
+      "id": "674cd22c-9119-52f6-aaf2-4226de5658be",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "texto": "Cualquiera puede poner su QR, quién sabe si sean reales.",
+      "estado": "clasificado",
+      "cuadrante": "piensa"
+    },
+    {
+      "id": "a8e2cb7b-d778-521d-b99e-989e357ce458",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "texto": "Frustrado cuando reporta algo y nunca sabe qué pasó.",
+      "estado": "clasificado",
+      "cuadrante": "siente"
+    },
+    {
+      "id": "ba86b56b-5adb-5605-84a6-93d247cc4e76",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "texto": "Indiferencia al escanear un QR.",
+      "estado": "clasificado",
+      "cuadrante": "siente"
+    },
+    {
+      "id": "a4a15279-2d6a-5eab-869e-6df3ff1f3189",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "texto": "Cree que otros docentes reportan más que él.",
+      "estado": "sin-clasificar"
+    },
+    {
+      "id": "1e39f126-85ab-5c92-bfea-2b89c45a558e",
+      "sujetoId": "5d3ec689-cfc0-58fb-8a39-1437ff124a11",
+      "texto": "Tener que escribir el número de salón, muchas veces no sabía cuál era.",
+      "estado": "clasificado",
+      "cuadrante": "dice"
+    },
+    {
+      "id": "6df48328-4836-5f04-bf81-f6195e342584",
+      "sujetoId": "5d3ec689-cfc0-58fb-8a39-1437ff124a11",
+      "texto": "Levantaba más reportes para meter presión.",
+      "estado": "clasificado",
+      "cuadrante": "hace"
+    },
+    {
+      "id": "8f5d64c3-5ec7-5e61-9926-0210e699a693",
+      "sujetoId": "5d3ec689-cfc0-58fb-8a39-1437ff124a11",
+      "texto": "Es algo fastidioso el proceso de levantar un reporte y darle seguimiento.",
+      "estado": "clasificado",
+      "cuadrante": "piensa"
+    },
+    {
+      "id": "2b1ce61f-cd97-56f3-b7e0-c82e17242ebc",
+      "sujetoId": "5d3ec689-cfc0-58fb-8a39-1437ff124a11",
+      "texto": "Le parecía muy enredoso revisar el estatus y dejó de hacerlo.",
+      "estado": "clasificado",
+      "cuadrante": "siente"
+    },
+    {
+      "id": "43ab01d5-c37d-5d39-bb0d-7df8245f39ac",
+      "sujetoId": "ce709a1a-ddf1-5698-b6c9-33a214ea619f",
+      "texto": "No atiendan reportes informales de pasillo o por WhatsApp.",
+      "estado": "clasificado",
+      "cuadrante": "dice"
+    },
+    {
+      "id": "54a39a2c-5d42-5270-9c38-459b87eb6d80",
+      "sujetoId": "ce709a1a-ddf1-5698-b6c9-33a214ea619f",
+      "texto": "Hace respaldos manuales del formulario por cada semestre.",
+      "estado": "clasificado",
+      "cuadrante": "hace"
+    },
+    {
+      "id": "8ff76635-0ca7-5e81-b73f-9ce05801238e",
+      "sujetoId": "ce709a1a-ddf1-5698-b6c9-33a214ea619f",
+      "texto": "Una app no puede sustituir el diagnóstico presencial.",
+      "estado": "clasificado",
+      "cuadrante": "piensa"
+    },
+    {
+      "id": "35ec1478-bf92-58bf-90f6-bbf90b832707",
+      "sujetoId": "ce709a1a-ddf1-5698-b6c9-33a214ea619f",
+      "texto": "Revisa manualmente el horario del salón antes de ir.",
+      "estado": "sin-clasificar"
+    },
+    {
+      "id": "f60d1f77-7c8e-5a9a-820c-587f9cf3f188",
+      "sujetoId": "349db877-9f1a-585b-bfa2-4fd57ebecda7",
+      "texto": "Que sea lo más visual posible.",
+      "estado": "clasificado",
+      "cuadrante": "dice"
+    },
+    {
+      "id": "141cc73b-294b-5274-8416-17a96d47ea29",
+      "sujetoId": "349db877-9f1a-585b-bfa2-4fd57ebecda7",
+      "texto": "Pide que los reportes se hagan por correo o QR para que haya registro.",
+      "estado": "clasificado",
+      "cuadrante": "hace"
+    },
+    {
+      "id": "77956e3a-3cec-5b95-a573-22775c538e72",
+      "sujetoId": "349db877-9f1a-585b-bfa2-4fd57ebecda7",
+      "texto": "Falta difusión del QR.",
+      "estado": "clasificado",
+      "cuadrante": "piensa"
+    },
+    {
+      "id": "14e0a025-ae6a-59e7-8578-2614b7f2727e",
+      "sujetoId": "349db877-9f1a-585b-bfa2-4fd57ebecda7",
+      "texto": "Los estudiantes no se enteran cuando se resuelve un reporte.",
+      "estado": "sin-clasificar"
+    }
+  ],
+  "cima-fix-research:empathy-map:insights": [
+    {
+      "id": "2a9efe2a-292c-5940-adf9-369cc8001370",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "descripcion": "Sin acuse de recibo, el docente no confía en el sistema y resuelve por su cuenta.",
+      "tipo": "necesidad-oculta",
+      "prioridad": "alta"
+    },
+    {
+      "id": "97a0b433-7202-5e2e-9532-84f0228c7ed1",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "descripcion": "Los QR sin identidad institucional generan desconfianza.",
+      "tipo": "usabilidad",
+      "prioridad": "media"
+    },
+    {
+      "id": "cbfb3f16-bb93-5da4-bd62-b0bbd8a412a8",
+      "sujetoId": "5d3ec689-cfc0-58fb-8a39-1437ff124a11",
+      "descripcion": "Pedir el número de salón obliga a salir del aula: debería venir precargado en el QR.",
+      "tipo": "carga-cognitiva",
+      "prioridad": "alta"
+    },
+    {
+      "id": "6811bbab-efb5-55a1-9e9c-0f5d271ad5a3",
+      "sujetoId": "5d3ec689-cfc0-58fb-8a39-1437ff124a11",
+      "descripcion": "Los reportes duplicados son una forma de presionar por falta de retroalimentación.",
+      "tipo": "adaptacion-manual",
+      "prioridad": "media"
+    },
+    {
+      "id": "bcfefddb-8866-5e9a-ac7b-4b7752f8864b",
+      "sujetoId": "ce709a1a-ddf1-5698-b6c9-33a214ea619f",
+      "descripcion": "Cruzar el reporte con el horario del salón podría automatizarse.",
+      "tipo": "innovacion-potencial",
+      "prioridad": "alta"
+    },
+    {
+      "id": "13dd8d3f-32e6-5d0f-af6c-7d2f91494c67",
+      "sujetoId": "ce709a1a-ddf1-5698-b6c9-33a214ea619f",
+      "descripcion": "Los respaldos manuales por semestre muestran desconfianza en la persistencia de los datos.",
+      "tipo": "adaptacion-manual",
+      "prioridad": "baja"
+    },
+    {
+      "id": "099dfc01-de37-5e01-b6af-ea5675c2afc1",
+      "sujetoId": "349db877-9f1a-585b-bfa2-4fd57ebecda7",
+      "descripcion": "La administración necesita una vista visual del estado de todos los reportes.",
+      "tipo": "usabilidad",
+      "prioridad": "media"
+    }
+  ],
+  "cima-fix-research:roper-dynagram:sujetos": [
+    {
+      "id": "349db877-9f1a-585b-bfa2-4fd57ebecda7",
+      "nombre": "Alfonso (Administrador)"
+    },
+    {
+      "id": "ce709a1a-ddf1-5698-b6c9-33a214ea619f",
+      "nombre": "Odín (Técnico)"
+    },
+    {
+      "id": "5d3ec689-cfc0-58fb-8a39-1437ff124a11",
+      "nombre": "Lupita (Estudiante)"
+    },
+    {
+      "id": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "nombre": "Jonatan (Docente)"
+    }
+  ],
+  "cima-fix-research:roper-dynagram:segmentos": [
+    {
+      "id": "c597c52d-e004-54b0-8f09-40f89e85cbaf",
+      "nombre": "Buscadores de confirmación",
+      "criterio": "Seguridad, necesidad de retroalimentación",
+      "requisitoUX": "Acuse de recibo inmediato y estado visible del reporte",
+      "funcionalidadClave": "Notificaciones de cambio de estado por correo",
+      "tonoSistema": "Cercano y tranquilizador"
+    },
+    {
+      "id": "8e59b5d5-8ccd-5462-9f31-51ba6aeba63f",
+      "nombre": "Pragmáticos autosuficientes",
+      "criterio": "Pragmatismo, resolver rápido por su cuenta",
+      "requisitoUX": "Reportar en menos de un minuto desde el aula",
+      "funcionalidadClave": "QR con salón precargado",
+      "tonoSistema": "Directo y breve"
+    },
+    {
+      "id": "40b2d356-4448-54c7-bde9-0f319337501a",
+      "nombre": "Controladores del proceso",
+      "criterio": "Orden, registro formal, control",
+      "requisitoUX": "Vista visual y centralizada de todos los reportes",
+      "funcionalidadClave": "Detección de duplicados y tablero de estados",
+      "tonoSistema": "Formal e institucional"
+    }
+  ],
+  "cima-fix-research:roper-dynagram:asignaciones": [
+    {
+      "id": "94b2e171-f4ce-5e41-932d-2b207469af74",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "segmentoId": "c597c52d-e004-54b0-8f09-40f89e85cbaf",
+      "evidencia": "\"Que tuviera alguna especie de feedback de que alguien lo recibió o lo leyó.\""
+    },
+    {
+      "id": "2af0d4dd-8aae-52a3-94c3-ba564ff4faf9",
+      "sujetoId": "5d3ec689-cfc0-58fb-8a39-1437ff124a11",
+      "segmentoId": "c597c52d-e004-54b0-8f09-40f89e85cbaf",
+      "evidencia": "\"Que al solucionar algún reporte, manden un correo electrónico o una notificación.\""
+    },
+    {
+      "id": "0a92160a-b0b1-54f6-96b6-0ff9d81396b8",
+      "sujetoId": "65e431b3-83f2-5d70-a001-9034a6c9d1e7",
+      "segmentoId": "8e59b5d5-8ccd-5462-9f31-51ba6aeba63f",
+      "evidencia": "Compró el cable por su cuenta en lugar de reportarlo."
+    },
+    {
+      "id": "9febc103-b65a-5878-9103-d458b941d5a7",
+      "sujetoId": "ce709a1a-ddf1-5698-b6c9-33a214ea619f",
+      "segmentoId": "40b2d356-4448-54c7-bde9-0f319337501a",
+      "evidencia": "Exige reportes por el canal formal y hace respaldos por semestre."
+    },
+    {
+      "id": "0a752911-a30b-5cb5-b4c0-519080a8a6a3",
+      "sujetoId": "349db877-9f1a-585b-bfa2-4fd57ebecda7",
+      "segmentoId": "40b2d356-4448-54c7-bde9-0f319337501a",
+      "evidencia": "\"Que sea lo más visual posible.\" Pide registro por escrito de cada reporte."
+    }
+  ],
+  "cima-fix-research:requirements-mapping:requisitos": [
+    {
+      "id": "a7120114-b3a6-4f33-9384-5d7a06628ef0",
+      "insightId": "2a9efe2a-292c-5940-adf9-369cc8001370",
+      "descripcion": "El sistema debe mostrar una confirmación inmediata al crear el reporte, con un identificador que el reportante pueda consultar después",
+      "tipo": "funcional",
+      "prioridadBase": "alta",
+      "estadoValidacion": "pendiente",
+      "decisionArquitectura": "Endpoint devuelve un ticket ID al crear el reporte; el front lo muestra como confirmación persistente en pantalla"
+    },
+    {
+      "id": "e69aa5df-ba59-457b-9303-0d7f349aa101",
+      "insightId": "cbfb3f16-bb93-5da4-bd62-b0bbd8a412a8",
+      "descripcion": "El formulario de reporte debe traer el salón precargado a partir del QR escaneado, sin que el usuario lo escriba",
+      "tipo": "ux",
+      "prioridadBase": "alta",
+      "estadoValidacion": "pendiente",
+      "decisionArquitectura": "El QR codifica el id del salón en la URL; el campo salón del formulario se prellena y queda de solo lectura"
+    },
+    {
+      "id": "6c7dc740-5e32-4b11-95e1-2a759471cac9",
+      "insightId": "bcfefddb-8866-5e9a-ac7b-4b7752f8864b",
+      "segmentoId": "40b2d356-4448-54c7-bde9-0f319337501a",
+      "descripcion": "El sistema debe cruzar automáticamente el reporte con el horario del salón para saber cuándo está disponible para revisión",
+      "tipo": "funcional",
+      "prioridadBase": "media",
+      "estadoValidacion": "pendiente",
+      "decisionArquitectura": "Servicio de horarios expone disponibilidad por salón; el reporte se enriquece con la próxima ventana libre al crearse"
+    },
+    {
+      "id": "968710a9-a6bb-4685-b454-019dc90a02d7",
+      "insightId": "6811bbab-efb5-55a1-9e9c-0f5d271ad5a3",
+      "segmentoId": "c597c52d-e004-54b0-8f09-40f89e85cbaf",
+      "descripcion": "El sistema debe detectar reportes duplicados del mismo problema y notificar el estado actual en vez de dejar que se repita",
+      "tipo": "funcional",
+      "prioridadBase": "baja",
+      "estadoValidacion": "pendiente",
+      "decisionArquitectura": "Regla de deduplicación por salón+categoría en ventana de 48h; dispara notificación de estado al reportante existente en vez de crear otro registro"
+    },
+    {
+      "id": "1c964ee8-7c42-4df1-8530-618425006a0d",
+      "insightId": "099dfc01-de37-5e01-b6af-ea5675c2afc1",
+      "segmentoId": "40b2d356-4448-54c7-bde9-0f319337501a",
+      "descripcion": "El sistema debe ofrecer un dashboard visual con el estado de todos los reportes para el administrador",
+      "tipo": "ux",
+      "prioridadBase": "media",
+      "estadoValidacion": "pendiente",
+      "decisionArquitectura": "Vista de tablero con filtros por estado/categoría/salón, reutilizando los mismos datos del listado sin endpoint aparte"
+    }
+  ]
+}
