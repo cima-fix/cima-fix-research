@@ -539,5 +539,55 @@
       "segmentoId": "40b2d356-4448-54c7-bde9-0f319337501a",
       "evidencia": "\"Que sea lo más visual posible.\" Pide registro por escrito de cada reporte."
     }
+  ],
+  "cima-fix-research:requirements-mapping:requisitos": [
+    {
+      "id": "a7120114-b3a6-4f33-9384-5d7a06628ef0",
+      "insightId": "2a9efe2a-292c-5940-adf9-369cc8001370",
+      "descripcion": "El sistema debe mostrar una confirmación inmediata al crear el reporte, con un identificador que el reportante pueda consultar después",
+      "tipo": "funcional",
+      "prioridadBase": "alta",
+      "estadoValidacion": "pendiente",
+      "decisionArquitectura": "Endpoint devuelve un ticket ID al crear el reporte; el front lo muestra como confirmación persistente en pantalla"
+    },
+    {
+      "id": "e69aa5df-ba59-457b-9303-0d7f349aa101",
+      "insightId": "cbfb3f16-bb93-5da4-bd62-b0bbd8a412a8",
+      "descripcion": "El formulario de reporte debe traer el salón precargado a partir del QR escaneado, sin que el usuario lo escriba",
+      "tipo": "ux",
+      "prioridadBase": "alta",
+      "estadoValidacion": "pendiente",
+      "decisionArquitectura": "El QR codifica el id del salón en la URL; el campo salón del formulario se prellena y queda de solo lectura"
+    },
+    {
+      "id": "6c7dc740-5e32-4b11-95e1-2a759471cac9",
+      "insightId": "bcfefddb-8866-5e9a-ac7b-4b7752f8864b",
+      "segmentoId": "40b2d356-4448-54c7-bde9-0f319337501a",
+      "descripcion": "El sistema debe cruzar automáticamente el reporte con el horario del salón para saber cuándo está disponible para revisión",
+      "tipo": "funcional",
+      "prioridadBase": "media",
+      "estadoValidacion": "pendiente",
+      "decisionArquitectura": "Servicio de horarios expone disponibilidad por salón; el reporte se enriquece con la próxima ventana libre al crearse"
+    },
+    {
+      "id": "968710a9-a6bb-4685-b454-019dc90a02d7",
+      "insightId": "6811bbab-efb5-55a1-9e9c-0f5d271ad5a3",
+      "segmentoId": "c597c52d-e004-54b0-8f09-40f89e85cbaf",
+      "descripcion": "El sistema debe detectar reportes duplicados del mismo problema y notificar el estado actual en vez de dejar que se repita",
+      "tipo": "funcional",
+      "prioridadBase": "baja",
+      "estadoValidacion": "pendiente",
+      "decisionArquitectura": "Regla de deduplicación por salón+categoría en ventana de 48h; dispara notificación de estado al reportante existente en vez de crear otro registro"
+    },
+    {
+      "id": "1c964ee8-7c42-4df1-8530-618425006a0d",
+      "insightId": "099dfc01-de37-5e01-b6af-ea5675c2afc1",
+      "segmentoId": "40b2d356-4448-54c7-bde9-0f319337501a",
+      "descripcion": "El sistema debe ofrecer un dashboard visual con el estado de todos los reportes para el administrador",
+      "tipo": "ux",
+      "prioridadBase": "media",
+      "estadoValidacion": "pendiente",
+      "decisionArquitectura": "Vista de tablero con filtros por estado/categoría/salón, reutilizando los mismos datos del listado sin endpoint aparte"
+    }
   ]
 }
