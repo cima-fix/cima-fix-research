@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { createStorageKey, getItem, setItem } from "../../lib/storage.ts";
 import { addToList, removeFromList } from "../../lib/list.ts";
 import { Select } from "../../components/ui/Select.tsx";
@@ -10,18 +10,18 @@ const SUBJECTS_KEY = createStorageKey("empathy-map", "subjects");
 const FRAGMENTS_KEY = createStorageKey("empathy-map", "fragments");
 
 export function EmpathyMapPage() {
-  const [subjects, setSubjects] = useState<Subject[]>([]);
-  const [fragments, setFragments] = useState<Fragment[]>([]);
-  const [activeSubjectId, setActiveSubjectId] = useState<string | null>(null);
+  const [subjects, setSubjects] = useState<Subject[]>(() =>
+    getItem<Subject[]>(SUBJECTS_KEY, []),
+  );
+  const [fragments, setFragments] = useState<Fragment[]>(() =>
+    getItem<Fragment[]>(FRAGMENTS_KEY, []),
+  );
+  const [activeSubjectId, setActiveSubjectId] = useState<string | null>(() => {
+    const loaded = getItem<Subject[]>(SUBJECTS_KEY, []);
+    return loaded[0]?.id ?? null;
+  });
   const [newSubjectName, setNewSubjectName] = useState("");
   const [newFragmentText, setNewFragmentText] = useState("");
-
-  useEffect(() => {
-    const loadedSubjects = getItem<Subject[]>(SUBJECTS_KEY, []);
-    setSubjects(loadedSubjects);
-    setFragments(getItem<Fragment[]>(FRAGMENTS_KEY, []));
-    setActiveSubjectId(loadedSubjects[0]?.id ?? null);
-  }, []);
 
   function persistSubjects(next: Subject[]) {
     setSubjects(next);
