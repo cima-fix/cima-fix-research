@@ -2,9 +2,9 @@
 
 | Metadato             | Valor                         |
 | -------------------- | ----------------------------- |
-| Versión              | v1.5.0                        |
+| Versión              | v1.6.0                        |
 | Estado               | Activo                        |
-| Última actualización | 2026-09-16                    |
+| Última actualización | 2026-09-21                    |
 | Autor                | Mike Armando Montano Valencia |
 
 ---
@@ -19,6 +19,7 @@
 | v1.3.0  | 2026-09-10 | Mike Armando Montano Valencia | Sección 7: se agrega regla de nombrado para tokens nuevos de `@theme` (evitar colisión de sufijo con otros `--color-*`, con prefijos de utility, y con `--text-*`).                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | v1.4.0  | 2026-09-12 | Mike Armando Montano Valencia | Sección 3: se agrega `clsx` + `tailwind-merge` como utilidades de UI. Sección 4: se agrega `lib/cn.ts` a la estructura del repositorio. Sección 6: se agrega la convención de `className`/`cn()` para los componentes base compartidos.                                                                                                                                                                                                                                                                                                                                                                     |
 | v1.5.0  | 2026-09-16 | Mike Armando Montano Valencia | Sección 3: se agrega `lib/import.ts` como utilidad de carga de datos reales, con dos mecanismos: automático (lee `public/dataset.json` al iniciar la aplicación) y manual (`ImportButton` en la landing page). Sección 4: se agrega `lib/import.ts` y `public/` a la estructura del repositorio. Sección 4.2: se documentan ambos mecanismos, incluyendo el reemplazo del dataset vía importación manual. Sección 6: se agrega `ImportButton` a los componentes base compartidos. Sección 8: se agrega el requisito de compartir con el líder la clave de storage y la forma del registro de cada interfaz. |
+| v1.6.0  | 2026-09-21 | Mike Armando Montano Valencia | Sección 4: se agrega `pages/` a la estructura del repositorio, documentando dónde vive `LandingPage.tsx` (blueprint.md no lo definía; decisión ya tomada en la Fase 6 de scaffolding.md). Se agrega `pages/` a la lista de rutas compartidas entregadas por el scaffolding inicial. |
 
 ---
 
@@ -85,6 +86,8 @@ cima-fix-research/
 │   ├── App.tsx
 │   ├── main.tsx          # importa ./index.css
 │   ├── index.css         # @import "tailwindcss"; + bloque @theme (sección 7)
+│   ├── pages/             # vistas de nivel de aplicación
+│   │   └── LandingPage.tsx   # página de entrada de la aplicación, ruta índice en router.tsx
 │   ├── features/
 │   │   ├── expert-interviews/
 │   │   ├── extreme-users/
@@ -126,7 +129,7 @@ features/<nombre-interfaz>/
 **Límites de propiedad**, para minimizar conflictos de merge trabajando en paralelo:
 
 - Cada quien trabaja **únicamente dentro de su carpeta** en `features/`.
-- `components/ui/`, `lib/`, `router.tsx`, `index.css` y `App.tsx` son compartidos — los entrega el scaffolding inicial. Si alguien necesita un componente nuevo ahí, se coordina adecuadamente en vez de editarlo directamente. Excepción: agregar un token nuevo al bloque `@theme` de `index.css` no requiere coordinar con el líder — basta con haberlo reflejado primero en Figma (ver sección 7).
+- `components/ui/`, `pages/`, `lib/`, `router.tsx`, `index.css` y `App.tsx` son compartidos — los entrega el scaffolding inicial. Si alguien necesita un componente nuevo ahí, se coordina adecuadamente en vez de editarlo directamente. Excepción: agregar un token nuevo al bloque `@theme` de `index.css` no requiere coordinar con el líder — basta con haberlo reflejado primero en Figma (ver sección 7).
 
 ## 4.1 Contrato de datos entre interfaces (Empathy Map ↔ Roper Dynagram ↔ Mapeo de Requerimientos)
 
