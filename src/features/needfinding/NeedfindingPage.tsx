@@ -1,18 +1,18 @@
 // features/needfinding/NeedfindingPage.tsx
 //
-// Punto de entrada que engancha el router (blueprint.md §4). No vuelve a
-// envolver el contenido en <AppShell>/<NavMenu>: eso vive una sola vez en
-// router.tsx/App.tsx como layout compartido de las 6 interfaces; esta página
-// es lo que se renderiza dentro de ese layout.
+// Entry point that hooks into the router (blueprint.md §4). It doesn't wrap
+// the content in <AppShell>/<NavMenu> again: that lives once in
+// router.tsx/App.tsx as the shared layout for the 6 interfaces; this page is
+// what gets rendered inside that layout.
 //
-// SUPUESTOS SIN VERIFICAR sobre lib/ (ajustar a la firma real):
-// - lib/storage.ts expone `createStorageKey(name)`, `getItem<T>(key)` y
+// UNVERIFIED ASSUMPTIONS about lib/ (adjust to the real signature):
+// - lib/storage.ts exposes `createStorageKey(name)`, `getItem<T>(key)` and
 //   `setItem<T>(key, value)`.
-// - lib/list.ts expone `addItem`, `updateItem`, `removeItem` — helpers
-//   inmutables que generan/localizan el id internamente.
-// - lib/export.ts expone `exportToJSON(filename, data)` y
+// - lib/list.ts exposes `addItem`, `updateItem`, `removeItem` — immutable
+//   helpers that generate/locate the id internally.
+// - lib/export.ts exposes `exportToJSON(filename, data)` and
 //   `exportToCSV(filename, data)`.
-// - ExportButton acepta `label` + `onExport`.
+// - ExportButton accepts `label` + `onExport`.
 
 import { Card } from "../../components/ui/Card";
 import { Badge } from "../../components/ui/Badge";

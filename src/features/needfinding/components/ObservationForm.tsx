@@ -1,13 +1,13 @@
 // features/needfinding/components/ObservationForm.tsx
 //
-// SUPUESTOS SIN VERIFICAR (ajustar contra el código real de components/ui/):
-// - `FormField` envuelve un único hijo (Input/TextArea/Select) y le inyecta
-//   id/required/aria-* automáticamente, como describe blueprint.md §6. Aquí
-//   solo se le pasan `label` y `error`.
-// - `Select` recibe <option> como children (patrón de select nativo), no un
-//   prop `options`.
-// - `Input`/`TextArea`/`Select` son componentes controlados con `value` y
-//   `onChange` estilo React estándar.
+// UNVERIFIED ASSUMPTIONS (adjust against the real code in components/ui/):
+// - `FormField` wraps a single child (Input/TextArea/Select) and injects
+//   id/required/aria-* into it automatically, as described in blueprint.md
+//   §6. Here it's only given `label` and `error`.
+// - `Select` receives <option> as children (native select pattern), not an
+//   `options` prop.
+// - `Input`/`TextArea`/`Select` are controlled components with standard
+//   React-style `value` and `onChange`.
 
 import { useState, type FormEvent } from "react";
 import { Card } from "../../../components/ui/Card.tsx";
@@ -24,7 +24,7 @@ import {
 } from "../types.ts";
 
 interface ObservationFormProps {
-  /** Observación en edición, o null/undefined para "nuevo registro". */
+  /** Observation being edited, or null/undefined for "new record". */
   initialValues?: NeedfindingObservation | null;
   onSubmit: (values: NeedfindingFormValues) => void;
   onCancelEdit: () => void;
@@ -93,7 +93,7 @@ export function ObservationForm({
       </div>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-      {/* Contexto de observación — 2 columnas en desktop, 1 en mobile */}
+      {/* Observation context — 2 columns on desktop, 1 on mobile */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <FormField id="location" label="Lugar" error={errors.location}>
             <Input
@@ -125,7 +125,7 @@ export function ObservationForm({
           </FormField>
         </div>
 
-        {/* Iceberg: superficie vs. profundidad */}
+        {/* Iceberg: surface vs. depth */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <FormField id="obviousNeeds" label="Necesidades obvias (superficie)">
             <TextArea
@@ -145,7 +145,7 @@ export function ObservationForm({
           </FormField>
         </div>
 
-        {/* Dato crudo vs. interpretación — separación explícita exigida por la tarea */}
+        {/* Raw data vs. interpretation — explicit separation required by the assignment */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <FormField id="rawData" label="Dato crudo observado">
             <TextArea
