@@ -142,7 +142,7 @@ export function EmpathyMapPage() {
     return (
         <div className="p-6">
             <header className="flex items-center gap-4 mb-6">
-                <h1 className="text-heading-2 font-bold">Mapa de Empatía</h1>
+                <h1 className="text-heading-2 font-bold shrink-0">Mapa de Empatía</h1>
                 <label className="flex items-center gap-2">
                     <span className="text-paragraph">Sujeto</span>
                     <Select
@@ -156,15 +156,17 @@ export function EmpathyMapPage() {
                         ))}
                     </Select>
                 </label>
-                <Input
-                    value={newSubjectName}
-                    onChange={(e) => setNewSubjectName(e.target.value)}
-                    placeholder="Nuevo sujeto..."
-                    aria-label="Nombre del nuevo sujeto"
-                />
-                <Button variant="secondary" onClick={handleAddSubject}>
-                    + Sujeto
-                </Button>
+                <div className="flex gap-2 flex-1 min-w-0">
+                    <Input
+                        value={newSubjectName}
+                        onChange={(e) => setNewSubjectName(e.target.value)}
+                        placeholder="Nuevo sujeto..."
+                        aria-label="Nombre del nuevo sujeto"
+                    />
+                    <Button variant="secondary" onClick={handleAddSubject} className="w-auto shrink-0">
+                        + Sujeto
+                    </Button>
+                </div>
             </header>
 
             <section aria-labelledby="inbox-heading" className="mb-6">
