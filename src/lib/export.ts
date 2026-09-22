@@ -1,3 +1,5 @@
+import { getAllItems } from "./storage.ts";
+
 function downloadBlob(blob: Blob, filename: string): void {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
@@ -38,6 +40,14 @@ export function exportToJSON<T>(data: T, filename: string): void {
   });
 
   downloadBlob(blob, `${filename}.json`);
+}
+
+// Downloads ALL interfaces' data as one object keyed by full storage key —
+// the exact shape "Importar dataset" expects, so export -> import round-trips.
+export function exportAllToJSON(
+  filename: string = "cima-fix-research-dataset",
+): void {
+  exportToJSON(getAllItems(), filename);
 }
 
 export function exportToCSV<T extends object>(

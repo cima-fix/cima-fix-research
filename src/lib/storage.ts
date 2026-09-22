@@ -25,6 +25,27 @@ export function setItem<T>(key: string, value: T): void {
   }
 }
 
+// Returns every saved entry whose key starts with `${prefix}:`, parsed from
+// JSON, as { fullKey: value }. Used by the "export everything" backup.
+export function getAllItems(
+  prefix: string = STORAGE_KEY_PREFIX,
+): Record<string, unknown> {
+  const result: Record<string, unknown> = {};
+
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key === null || !key.startsWith(`${prefix}:`)) continue;
+
+    try {
+      result[key] = JSON.parse(localStorage.getItem(key) ?? "null");
+    } catch (error) {
+      console.warn(`Skipping "${key}": its value is not valid JSON.`, error);
+    }
+  }
+
+  return result;
+}
+
 export function removeItem(key: string): void {
   try {
     localStorage.removeItem(key);

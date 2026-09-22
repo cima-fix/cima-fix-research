@@ -1,9 +1,46 @@
-import { hasItem, setItem } from "./storage.ts";
+import {
+  FEATURE_LABELS,
+  STORAGE_KEY_PREFIX,
+  hasItem,
+  setItem,
+} from "./storage.ts";
 
 export type Dataset = Record<string, unknown>;
 
 export function isDataset(value: unknown): value is Dataset {
   return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+// A key is "ours" when it looks like `cima-fix-research:<known feature>:<entity>`,
+// the same shape createStorageKey() produces.
+export function isKnownStorageKey(key: string): boolean {
+  const [prefix, feature, entity] = key.split(":");
+  return (
+    prefix === STORAGE_KEY_PREFIX &&
+    feature in FEATURE_LABELS &&
+    Boolean(entity)
+  );
+}
+
+export interface SplitDataset {
+  valid: Dataset; // entries safe to save
+  ignored: string[]; // keys we skipped (unknown key or value isn't a list)
+}
+
+// Every interface stores a list, so a valid entry = known key + array value.
+export function splitDataset(dataset: Dataset): SplitDataset {
+  const valid: Dataset = {};
+  const ignored: string[] = [];
+
+  for (const [key, value] of Object.entries(dataset)) {
+    if (isKnownStorageKey(key) && Array.isArray(value)) {
+      valid[key] = value;
+    } else {
+      ignored.push(key);
+    }
+  }
+
+  return { valid, ignored };
 }
 
 async function fetchDataset(url: string): Promise<Dataset | null> {
@@ -64,5 +101,10 @@ export async function importDatasetOnStartup(
     return;
   }
 
-  seedDataset(dataset, { overwrite: false });
+  const { valid, ignored } = splitDataset(dataset);
+  if (ignored.length > 0) {
+    console.warn(`Ignored unknown dataset keys from "${url}":`, ignored);
+  }
+
+  seedDataset(valid, { overwrite: false });
 }

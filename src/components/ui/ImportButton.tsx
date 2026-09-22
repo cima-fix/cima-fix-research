@@ -1,6 +1,12 @@
 import { useId, useRef, useState, type ChangeEvent } from "react";
 import { cn } from "../../lib/cn.ts";
-import { isDataset, seedDataset, type Dataset } from "../../lib/import.ts";
+import { exportAllToJSON } from "../../lib/export.ts";
+import {
+  isDataset,
+  seedDataset,
+  splitDataset,
+  type Dataset,
+} from "../../lib/import.ts";
 import {
   FEATURE_LABELS,
   STORAGE_KEY_PREFIX,
@@ -38,6 +44,7 @@ export function ImportButton({ className }: ImportButtonProps) {
   const feedbackId = useId();
 
   const [pendingDataset, setPendingDataset] = useState<Dataset | null>(null);
+  const [ignoredKeys, setIgnoredKeys] = useState<string[]>([]);
   const [feedback, setFeedback] = useState<Feedback | null>(null);
 
   const affectedInterfaces = pendingDataset
@@ -62,6 +69,16 @@ export function ImportButton({ className }: ImportButtonProps) {
       return;
     }
 
+    // A list = the "Exportar JSON" file of a single interface. It has no
+    // storage keys, so we can't know where to save it.
+    if (Array.isArray(parsed)) {
+      setFeedback({
+        kind: "error",
+        text: `"${file.name}" es la exportación de una sola interfaz (una lista). Para importar, usa un archivo creado con "Exportar todo".`,
+      });
+      return;
+    }
+
     if (!isDataset(parsed)) {
       setFeedback({
         kind: "error",
@@ -70,7 +87,18 @@ export function ImportButton({ className }: ImportButtonProps) {
       return;
     }
 
-    setPendingDataset(parsed);
+    const { valid, ignored } = splitDataset(parsed);
+
+    if (Object.keys(valid).length === 0) {
+      setFeedback({
+        kind: "error",
+        text: `"${file.name}" no tiene datos reconocibles. Las claves deben verse como "cima-fix-research:extreme-users:users" y contener una lista.`,
+      });
+      return;
+    }
+
+    setIgnoredKeys(ignored);
+    setPendingDataset(valid);
   }
 
   function handleConfirm() {
@@ -95,13 +123,22 @@ export function ImportButton({ className }: ImportButtonProps) {
         onChange={(event) => void handleFileChange(event)}
       />
 
-      <Button
-        className="w-auto"
-        aria-describedby={feedback ? feedbackId : undefined}
-        onClick={() => inputRef.current?.click()}
-      >
-        Importar dataset
-      </Button>
+      <div className="flex flex-wrap gap-2">
+        <Button
+          className="w-auto"
+          aria-describedby={feedback ? feedbackId : undefined}
+          onClick={() => inputRef.current?.click()}
+        >
+          Importar dataset
+        </Button>
+        <Button
+          variant="secondary"
+          className="w-auto"
+          onClick={() => exportAllToJSON()}
+        >
+          Exportar todo
+        </Button>
+      </div>
 
       {feedback && (
         <p
@@ -130,6 +167,12 @@ export function ImportButton({ className }: ImportButtonProps) {
               <li key={label}>{label}</li>
             ))}
           </ul>
+          {ignoredKeys.length > 0 && (
+            <p className="text-body-sm text-ink-secondary">
+              Se ignorarán {ignoredKeys.length} clave(s) no reconocida(s):{" "}
+              {ignoredKeys.join(", ")}
+            </p>
+          )}
           <p className="text-body-sm text-ink-secondary">
             Esta acción no se puede deshacer.
           </p>
