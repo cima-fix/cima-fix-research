@@ -11,6 +11,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Entrevista a Expertos", path: "/expert-interviews" },
   { label: "Usuarios Extremos", path: "/extreme-users" },
   { label: "Empathy Map", path: "/empathy-map" },
+  { label: "Roper Dynagram", path: "/roper-dynagram" },
 ];
 
 export const PAGE_GUTTER_X = "px-6 sm:px-10 lg:px-16 xl:px-24 2xl:px-36";

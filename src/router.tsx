@@ -7,6 +7,7 @@ import { ExpertInterviewDetailPage } from "./features/expert-interviews/ExpertIn
 import { ExtremeUsersPage } from "./features/extreme-users/ExtremeUserPage.tsx";
 import { ExtremeUserDetailPage } from "./features/extreme-users/ExtremeUserDetailPage.tsx";
 import { EmpathyMapPage } from "./features/empathy-map/EmpathyMapPage.tsx";
+import { RoperDynagramPage } from "./features/roper-dynagram/RoperDynagramPage.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ export const router = createBrowserRouter([
       { path: "extreme-users", element: <ExtremeUsersPage /> },
       { path: "extreme-users/:id", element: <ExtremeUserDetailPage /> },
       { path: "empathy-map", element: <EmpathyMapPage /> },
+      { path: "roper-dynagram", element: <RoperDynagramPage /> },
       { path: "*", element: <NotFound /> },
     ],
   },
