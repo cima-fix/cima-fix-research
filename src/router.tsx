@@ -4,6 +4,7 @@ import { NotFound } from "./components/layout/NotFound.tsx";
 import { LandingPage } from "./pages/LandingPage.tsx";
 import { ExpertInterviewsPage } from "./features/expert-interviews/ExpertInterviewsPage.tsx";
 import { ExpertInterviewDetailPage } from "./features/expert-interviews/ExpertInterviewDetailPage.tsx";
+import { NeedfindingPage } from "./features/needfinding/NeedfindingPage.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ export const router = createBrowserRouter([
       { index: true, element: <LandingPage /> },
       { path: "expert-interviews", element: <ExpertInterviewsPage /> },
       { path: "expert-interviews/:id", element: <ExpertInterviewDetailPage /> },
+      { path: "needfinding", element: <NeedfindingPage /> },
       { path: "*", element: <NotFound /> },
     ],
   },
